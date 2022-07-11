@@ -26,11 +26,11 @@ const Navbar = () =>
                             <li><a className="dropdown-item" href="#">Other Boxes</a></li>
                         </ul>
                     </li>
+                    {/* <li className="nav-item">
+                        <a className="nav-link" href="/about">About Us</a>
+                    </li> */}
                     <li className="nav-item">
-                    <a className="nav-link" href="/about">About Us</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="/contact">Contact Us</a>
+                        <a className="nav-link" href="/contact">Contact Us</a>
                     </li>
                 </ul>
                 <form className="d-flex" role="search">
