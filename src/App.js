@@ -11,8 +11,11 @@ function App() {
   return (
     <div>
       <Navbar />
+      {/* Switch has been replaced with Routes with new react-router-dom version */}
+      {/* all routes are here */}
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path='/' element={<Home />} />
+        {/* error page displayed if no component is found for the path specified */}
         <Route path='*' element={ <ErrorPage />} />
       </Routes>
     </div>
