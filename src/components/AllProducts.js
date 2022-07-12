@@ -98,7 +98,7 @@ const AllProducts = () =>
                             return(
                                 <form method="get" action={"/products/" + product.type + "/" + product.id} className="card">
                                     <button type="submit" className="">
-                                        <img src={"/images/" + product.id + "/" + product.thumbnail + ".JPG"} className="card-img-top" alt="..." />
+                                        <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
                                         <div type="submit" className="card-body">
                                             <p className="card-title">{product.name}</p>
                                             <p className="card-text">{product.desc}</p>

@@ -17,11 +17,7 @@ const Home = () =>
                 </Link>
                 <Link to="/tbd1">
                     <img src={placeholder}/>
-                    Food Packaging Boxes
-                </Link>
-                <Link to="/tbd2">
-                    <img src={placeholder}/>
-                    Food Packagaing Accesories
+                    Food Packaging
                 </Link>
                 <Link to="/tbd3">
                     <img src={placeholder}/>
