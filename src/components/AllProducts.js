@@ -1,8 +1,8 @@
 import React from "react";
 import {NavLink, Link} from "react-router-dom";
 
-const AllProducts = () =>
-{
+const AllProducts = (props) =>
+{   
     // add a new object for each product type
     let productCategories = [
         {
@@ -74,6 +74,7 @@ const AllProducts = () =>
     return(
         <>
             <h1 className="sub-title">Our Products</h1>
+            <h1>{props.foodPack[1].type}</h1>
                 <div className="">
                     { 
                         productCategories.map(category =>
