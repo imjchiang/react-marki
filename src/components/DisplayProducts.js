@@ -107,7 +107,7 @@ const DisplayProducts = (props) =>
                     onMouseLeave={rotateArrowUp} 
                     onClick={() => setOnfoodclick(!onfoodclick)}>
                 <img className="dropdownimg" src={arrow} />
-                Food Packaging
+                &nbsp;Food Packaging
             </button>
             <div className="">
             {
@@ -123,7 +123,7 @@ const DisplayProducts = (props) =>
                                         onMouseLeave={rotateArrowUp} 
                                         onClick={() => setFtypeclick(typeclick(ftypeclick, key))}>
                                     <img className="dropdownimg" src={arrow} />
-                                    {food.type}
+                                    &nbsp;{food.type}
                                 </button>
                                 {
                                     // check whether the variants of the type is expanded or not and renders if so
@@ -151,7 +151,7 @@ const DisplayProducts = (props) =>
                     onMouseLeave={rotateArrowUp} 
                     onClick={() => setOnpersonalclick(!onpersonalclick)}>
                 <img className="dropdownimg" src={arrow} />
-                Personal Care Packaging
+                &nbsp;Personal Care Packaging
             </button>
             <div className="">
             {
@@ -167,7 +167,7 @@ const DisplayProducts = (props) =>
                                         onMouseLeave={rotateArrowUp} 
                                         onClick={() => setPtypeclick(typeclick(ptypeclick, key))}>
                                     <img className="dropdownimg" src={arrow} />
-                                    {personal.type}
+                                    &nbsp;{personal.type}
                                 </button>
                                 {
                                     // check whether the variants of the type is expanded or not and renders if so
