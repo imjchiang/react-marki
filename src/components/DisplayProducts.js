@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import arrow from "../images/dropdown.png";
+import "../css/display.css";
 
 const DisplayProducts = (props) =>
 {
@@ -15,6 +17,17 @@ const DisplayProducts = (props) =>
         return arr;
     }
 
+    let rotateArrowDown = (e) =>
+    {
+        console.log("ENTERING");
+        e.target.firstChild.style.transform = "rotate(90deg)"
+    }
+
+    let rotateArrowUp = (e) =>
+    {
+        console.log("LEAVING");
+        e.target.firstChild.style.transform = "rotate(0deg)"
+    }
 
     // add a new object for each product type
     let productCategories = [
@@ -89,7 +102,13 @@ const DisplayProducts = (props) =>
             <h1 className="sub-title">Our Products</h1>
 
             {/* if the "button" is clicked, the sidebar for food packaging is expanded */}
-            <button onClick={() => setOnfoodclick(!onfoodclick)}>Food Packaging</button>
+            <button className="dropdownbutt"
+                    onMouseOver={rotateArrowDown} 
+                    onMouseLeave={rotateArrowUp} 
+                    onClick={() => setOnfoodclick(!onfoodclick)}>
+                <img className="dropdownimg" src={arrow} />
+                Food Packaging
+            </button>
             <div className="">
             {
                 // checks whether sidebar is expanded or not and renders if so
@@ -99,7 +118,13 @@ const DisplayProducts = (props) =>
                         return(
                             <>
                                 {/* if the button is clicked, the variants of the type is set to expand */}
-                                <button onClick={() => setFtypeclick(typeclick(ftypeclick, key))}>{food.type}</button>
+                                <button className="dropdownbutt"
+                                        onMouseOver={rotateArrowDown} 
+                                        onMouseLeave={rotateArrowUp} 
+                                        onClick={() => setFtypeclick(typeclick(ftypeclick, key))}>
+                                    <img className="dropdownimg" src={arrow} />
+                                    {food.type}
+                                </button>
                                 {
                                     // check whether the variants of the type is expanded or not and renders if so
                                     ftypeclick[key] ?
@@ -121,7 +146,13 @@ const DisplayProducts = (props) =>
             </div>
             
             {/* if the "button" is clicked, the sidebar for personal care packaging is expanded */}
-            <button onClick={() => setOnpersonalclick(!onpersonalclick)}>Personal Care Packaging</button>
+            <button className="dropdownbutt"
+                    onMouseOver={rotateArrowDown} 
+                    onMouseLeave={rotateArrowUp} 
+                    onClick={() => setOnpersonalclick(!onpersonalclick)}>
+                <img className="dropdownimg" src={arrow} />
+                Personal Care Packaging
+            </button>
             <div className="">
             {
                 // checks whether sidebar is expanded or not and renders if so
@@ -131,7 +162,13 @@ const DisplayProducts = (props) =>
                         return(
                             <>
                                 {/* if the button is clicked, the variants of the type is set to expand */}
-                                <button onClick={() => setPtypeclick(typeclick(ptypeclick, key))}>{personal.type}</button>
+                                <button className="dropdownbutt"
+                                        onMouseOver={rotateArrowDown} 
+                                        onMouseLeave={rotateArrowUp} 
+                                        onClick={() => setPtypeclick(typeclick(ptypeclick, key))}>
+                                    <img className="dropdownimg" src={arrow} />
+                                    {personal.type}
+                                </button>
                                 {
                                     // check whether the variants of the type is expanded or not and renders if so
                                     ptypeclick[key] ?
