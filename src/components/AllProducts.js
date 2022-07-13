@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {NavLink, Link} from "react-router-dom";
 
 const AllProducts = (props) =>
-{   
+{
+    // states for expanding sidebar
+    const [onfoodclick, setOnfoodclick] = useState(false);
+    const [onpersonalclick, setOnpersonalclick] = useState(false);
+
     // add a new object for each product type
     let productCategories = [
         {
@@ -74,42 +78,68 @@ const AllProducts = (props) =>
     return(
         <>
             <h1 className="sub-title">Our Products</h1>
-            <h1>{props.foodPack[1].type}</h1>
-                <div className="">
-                    { 
-                        productCategories.map(category =>
-                        {
-                            return(
-                                <form className="col" method="get" action={"/products/" + category.code}>
-                                    <button type="submit" className="card">
-                                        <div className="card-body">
-                                            <h5 className="card-title">{category.name}</h5>
-                                        </div>
-                                    </button>
-                                </form>
-                            );
-                        })
-                    }
-                </div>
 
-                <div className="">
+            {/* if the "button" is clicked, the sidebar for food packaging is expanded */}
+            <button onClick={() => setOnfoodclick(!onfoodclick)}>Food Packaging</button>
+            {
+                // checks whether sidebar is expanded or not and renders if so
+                onfoodclick ? 
+                    <div className="">
+                        { 
+                            props.foodPack.map(food =>
+                            {
+                                return(
+                                    <button>{food.type}</button>
+                                );
+                            })
+                        }
+                    </div>
+                :
+                    <></>
+            }
+            
+            {/* if the "button" is clicked, the sidebar for personal care packaging is expanded */}
+            <button onClick={() => setOnpersonalclick(!onpersonalclick)}>Personal Care Packaging</button>
+            {
+                // checks whether sidebar is expanded or not and renders if so
+                onpersonalclick ? 
+                    <div className="">
+                        { 
+                            props.personalPack.map(personal =>
+                            {
+                                return(
+                                    <button>{personal.type}</button>
+                                );
+                            })
+                        }
+                    </div>
+                :
+                <></>
+            }
+
+            {/* displays all the products */}
+            {/* 
+                maybe place this in another component and pass all items to this component as props, 
+                can choose to render other more specific components (categories) instead if certain buttons are clicked on
+            */}
+            <div className="">
+                {
+                    products.map(product =>
                     {
-                        products.map(product =>
-                        {
-                            return(
-                                <form method="get" action={"/products/" + product.type + "/" + product.id} className="card">
-                                    <button type="submit" className="">
-                                        <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
-                                        <div type="submit" className="card-body">
-                                            <p className="card-title">{product.name}</p>
-                                            <p className="card-text">{product.desc}</p>
-                                        </div>
-                                    </button>
-                                </form>
-                            );
-                        })
-                    } 
-                </div>
+                        return(
+                            <form method="get" action={"/products/" + product.type + "/" + product.id} className="card">
+                                <button type="submit" className="">
+                                    <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
+                                    <div type="submit" className="card-body">
+                                        <p className="card-title">{product.name}</p>
+                                        <p className="card-text">{product.desc}</p>
+                                    </div>
+                                </button>
+                            </form>
+                        );
+                    })
+                } 
+            </div>
 
             <form className="contact-button-form" method="get" action="/contact">
                 <button type="submit" className="card contact-button">
