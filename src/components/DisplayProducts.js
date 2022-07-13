@@ -5,6 +5,16 @@ const DisplayProducts = (props) =>
     // states for expanding sidebar
     const [onfoodclick, setOnfoodclick] = useState(false);
     const [onpersonalclick, setOnpersonalclick] = useState(false);
+    const [ftypeclick, setFtypeclick] = useState(Array(props.foodPack.length).fill(false));
+    const [ptypeclick, setPtypeclick] = useState(Array(props.personalPack.length).fill(false));
+
+    let typeclick = (type, index) =>
+    {
+        let arr = type.slice();
+        arr[index] = !arr[index];
+        return arr;
+    }
+
 
     // add a new object for each product type
     let productCategories = [
@@ -80,41 +90,67 @@ const DisplayProducts = (props) =>
 
             {/* if the "button" is clicked, the sidebar for food packaging is expanded */}
             <button onClick={() => setOnfoodclick(!onfoodclick)}>Food Packaging</button>
+            <div className="">
             {
                 // checks whether sidebar is expanded or not and renders if so
-                onfoodclick ? 
-                    <div className="">
-                        { 
-                            props.foodPack.map(food =>
-                            {
-                                return(
-                                    <button>{food.type}</button>
-                                );
-                            })
-                        }
-                    </div>
-                :
-                    <></>
-            }
-            
-            {/* if the "button" is clicked, the sidebar for personal care packaging is expanded */}
-            <button onClick={() => setOnpersonalclick(!onpersonalclick)}>Personal Care Packaging</button>
-            {
-                // checks whether sidebar is expanded or not and renders if so
-                onpersonalclick ? 
-                    <div className="">
-                        { 
-                            props.personalPack.map(personal =>
-                            {
-                                return(
-                                    <button>{personal.type}</button>
-                                );
-                            })
-                        }
-                    </div>
+                onfoodclick ?   
+                    props.foodPack.map((food, key) =>
+                    {
+                        return(
+                            <>
+                                {/* if the button is clicked, the variants of the type is set to expand */}
+                                <button onClick={() => setFtypeclick(typeclick(ftypeclick, key))}>{food.type}</button>
+                                {
+                                    // check whether the variants of the type is expanded or not and renders if so
+                                    ftypeclick[key] ?
+                                        food.variants.map(variant =>
+                                        {
+                                            return(
+                                                <button>{variant}</button>
+                                            )
+                                        })
+                                    :
+                                    <></>
+                                }
+                            </>
+                        );
+                    })
                 :
                 <></>
             }
+            </div>
+            
+            {/* if the "button" is clicked, the sidebar for personal care packaging is expanded */}
+            <button onClick={() => setOnpersonalclick(!onpersonalclick)}>Personal Care Packaging</button>
+            <div className="">
+            {
+                // checks whether sidebar is expanded or not and renders if so
+                onpersonalclick ? 
+                    props.personalPack.map((personal, key) =>
+                    {
+                        return(
+                            <>
+                                {/* if the button is clicked, the variants of the type is set to expand */}
+                                <button onClick={() => setPtypeclick(typeclick(ptypeclick, key))}>{personal.type}</button>
+                                {
+                                    // check whether the variants of the type is expanded or not and renders if so
+                                    ptypeclick[key] ?
+                                        personal.variants.map(variant =>
+                                        {
+                                            return(
+                                                <button>{variant}</button>
+                                            )
+                                        })
+                                    :
+                                    <></>
+                                }
+                            </>
+                        );
+                    })
+                :
+                <></>
+            }
+            </div>
 
             {/* displays all the products */}
             {/* 
