@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {NavLink, Link} from "react-router-dom";
+import React, {useState} from "react";
 
-const AllProducts = (props) =>
+const DisplayProducts = (props) =>
 {
     // states for expanding sidebar
     const [onfoodclick, setOnfoodclick] = useState(false);
@@ -150,4 +149,4 @@ const AllProducts = (props) =>
     );
 }
 
-export default AllProducts;
+export default DisplayProducts;

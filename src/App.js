@@ -3,7 +3,7 @@ import {Routes, Route} from "react-router-dom";
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import AllProducts from './components/AllProducts';
+import DisplayProducts from './components/DisplayProducts';
 import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
 
@@ -47,8 +47,8 @@ function App() {
       <Routes>
         <Route 
           exact 
-          path='/allproducts' 
-          element={<AllProducts foodPack={foodPack} personalPack={personalPack} />}
+          path='/displayproducts' 
+          element={<DisplayProducts foodPack={foodPack} personalPack={personalPack} />}
         />
         <Route exact path='/contact' element={<Contact />} />
         <Route exact path='/' element={<Home />} />

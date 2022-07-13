@@ -1,5 +1,4 @@
 import React from "react";
-import {NavLink, Link} from "react-router-dom";
 
 const Navbar = () =>
 {
@@ -20,7 +19,7 @@ const Navbar = () =>
                             Our Products
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/allproducts">All Products</a></li>
+                            <li><a className="dropdown-item" href="/displayproducts">All Products</a></li>
                             <li><a className="dropdown-item" href="/products/chocBox">Chocolate Boxes</a></li>
                             <li><hr className="dropdown-divider" /></li>
                             <li><a className="dropdown-item" href="#">Other Boxes</a></li>
