@@ -8,6 +8,7 @@ const Sidebar = (props) =>
     const [catclick, setCatclick] = useState(false);
     const [typeclick, setTypeclick] = useState(Array(props.packaging.length).fill(false));
 
+    // used to create a new array state for the type click array
     let tclickArrConvert = (type, index) =>
     {
         let arr = type.slice();
@@ -15,17 +16,24 @@ const Sidebar = (props) =>
         return arr;
     } 
 
+    // determines arrow rotation based on mouseover event and click status
     let arrowRot = (e, mouseOver, clickStatus) =>
     {
         if (clickStatus || mouseOver)
         {
-            console.log("arrow is hovered or clicked");
+            // console.log("arrow is hovered or clicked");
             e.target.firstChild.style.transform = "rotate(90deg)";
         }
         else
         {
-            console.log("arrow is NOT hovered or clicked");
+            // console.log("arrow is NOT hovered or clicked");
             e.target.firstChild.style.transform = "rotate(0deg)"
+        }
+
+        // if the category is closed, closed all types of the category
+        if (!catclick)
+        {
+            setTypeclick(Array(props.packaging.length).fill(false));
         }
     }
 
