@@ -14,7 +14,7 @@ const Contact = () =>
             <p>Email: kathy@marki.com.tw</p>
 
             <h2>Stephanie Yeh</h2>
-            <p>stephanie@marki.com.tw</p>
+            <p>Email: stephanie@marki.com.tw</p>
         </div>
     )
 }
