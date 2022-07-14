@@ -1,0 +1,81 @@
+import React, {useState} from "react";
+import arrow from "../images/dropdown.png";
+import "../css/display.css";
+
+const Sidebar = (props) =>
+{
+    // states for expanding sidebar
+    const [catclick, setCatclick] = useState(false);
+    const [typeclick, setTypeclick] = useState(Array(props.packaging.length).fill(false));
+
+    let tclickArrConvert = (type, index) =>
+    {
+        let arr = type.slice();
+        arr[index] = !arr[index];
+        return arr;
+    } 
+
+    let arrowRot = (e, mouseOver, clickStatus) =>
+    {
+        if (clickStatus || mouseOver)
+        {
+            console.log("arrow is hovered or clicked");
+            e.target.firstChild.style.transform = "rotate(90deg)";
+        }
+        else
+        {
+            console.log("arrow is NOT hovered or clicked");
+            e.target.firstChild.style.transform = "rotate(0deg)"
+        }
+    }
+
+    return(
+        <>
+            {/* if the "button" is clicked, the sidebar for food packaging is expanded */}
+            <button className="dropdownbutt"
+                    onMouseOver={(e) => {arrowRot(e, true, catclick)}} 
+                    onMouseLeave={(e) => {arrowRot(e, false, catclick)}} 
+                    onClick={() => setCatclick(!catclick)}>
+                <img className="dropdownimg" src={arrow} />
+                &nbsp;{props.packagingCategory}
+            </button>
+            <div className="">
+            {
+                // checks whether sidebar is expanded or not and renders if so
+                catclick ?   
+                    props.packaging.map((pack, key) =>
+                    {
+                        return(
+                            <>
+                                {/* if the button is clicked, the variants of the type is set to expand */}
+                                <button className="dropdownbutt"
+                                        onMouseOver={(e) => {arrowRot(e, true, typeclick[key])}} 
+                                        onMouseLeave={(e) => {arrowRot(e, false, typeclick[key])}} 
+                                        onClick={() => setTypeclick(tclickArrConvert(typeclick, key))}>
+                                    <img className="dropdownimg" src={arrow} />
+                                    &nbsp;{pack.type}
+                                </button>
+                                {
+                                    // check whether the variants of the type is expanded or not and renders if so
+                                    typeclick[key] ?
+                                        pack.variants.map(variant =>
+                                        {
+                                            return(
+                                                <button>{variant}</button>
+                                            )
+                                        })
+                                    :
+                                    <></>
+                                }
+                            </>
+                        );
+                    })
+                :
+                <></>
+            }
+            </div>
+        </>
+    );
+}
+
+export default Sidebar;
