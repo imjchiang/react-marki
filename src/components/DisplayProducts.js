@@ -149,8 +149,8 @@ const DisplayProducts = (props) =>
             
             {/* if the "button" is clicked, the sidebar for personal care packaging is expanded */}
             <button className="dropdownbutt"
-                    onMouseOver={(e) => {arrowRot(e, true, onfoodclick)}} 
-                    onMouseLeave={(e) => {arrowRot(e, false, onfoodclick)}} 
+                    onMouseOver={(e) => {arrowRot(e, true, onpersonalclick)}} 
+                    onMouseLeave={(e) => {arrowRot(e, false, onpersonalclick)}} 
                     onClick={() => setOnpersonalclick(!onpersonalclick)}>
                 <img className="dropdownimg" src={arrow} />
                 &nbsp;Personal Care Packaging
