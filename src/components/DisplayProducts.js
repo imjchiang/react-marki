@@ -15,18 +15,20 @@ const DisplayProducts = (props) =>
         let arr = type.slice();
         arr[index] = !arr[index];
         return arr;
-    }
+    } 
 
-    let rotateArrowDown = (e) =>
+    let arrowRot = (e, mouseOver, clickStatus) =>
     {
-        console.log("ENTERING");
-        e.target.firstChild.style.transform = "rotate(90deg)"
-    }
-
-    let rotateArrowUp = (e) =>
-    {
-        console.log("LEAVING");
-        e.target.firstChild.style.transform = "rotate(0deg)"
+        if (clickStatus || mouseOver)
+        {
+            console.log("arrow is hovered or clicked");
+            e.target.firstChild.style.transform = "rotate(90deg)";
+        }
+        else
+        {
+            console.log("arrow is NOT hovered or clicked");
+            e.target.firstChild.style.transform = "rotate(0deg)"
+        }
     }
 
     // add a new object for each product type
@@ -103,8 +105,8 @@ const DisplayProducts = (props) =>
 
             {/* if the "button" is clicked, the sidebar for food packaging is expanded */}
             <button className="dropdownbutt"
-                    onMouseOver={rotateArrowDown} 
-                    onMouseLeave={rotateArrowUp} 
+                    onMouseOver={(e) => {arrowRot(e, true, onfoodclick)}} 
+                    onMouseLeave={(e) => {arrowRot(e, false, onfoodclick)}} 
                     onClick={() => setOnfoodclick(!onfoodclick)}>
                 <img className="dropdownimg" src={arrow} />
                 &nbsp;Food Packaging
@@ -119,8 +121,8 @@ const DisplayProducts = (props) =>
                             <>
                                 {/* if the button is clicked, the variants of the type is set to expand */}
                                 <button className="dropdownbutt"
-                                        onMouseOver={rotateArrowDown} 
-                                        onMouseLeave={rotateArrowUp} 
+                                        onMouseOver={(e) => {arrowRot(e, true, ftypeclick[key])}} 
+                                        onMouseLeave={(e) => {arrowRot(e, false, ftypeclick[key])}} 
                                         onClick={() => setFtypeclick(typeclick(ftypeclick, key))}>
                                     <img className="dropdownimg" src={arrow} />
                                     &nbsp;{food.type}
@@ -147,8 +149,8 @@ const DisplayProducts = (props) =>
             
             {/* if the "button" is clicked, the sidebar for personal care packaging is expanded */}
             <button className="dropdownbutt"
-                    onMouseOver={rotateArrowDown} 
-                    onMouseLeave={rotateArrowUp} 
+                    onMouseOver={(e) => {arrowRot(e, true, onfoodclick)}} 
+                    onMouseLeave={(e) => {arrowRot(e, false, onfoodclick)}} 
                     onClick={() => setOnpersonalclick(!onpersonalclick)}>
                 <img className="dropdownimg" src={arrow} />
                 &nbsp;Personal Care Packaging
@@ -163,8 +165,8 @@ const DisplayProducts = (props) =>
                             <>
                                 {/* if the button is clicked, the variants of the type is set to expand */}
                                 <button className="dropdownbutt"
-                                        onMouseOver={rotateArrowDown} 
-                                        onMouseLeave={rotateArrowUp} 
+                                        onMouseOver={(e) => {arrowRot(e, true, ptypeclick[key])}} 
+                                        onMouseLeave={(e) => {arrowRot(e, false, ptypeclick[key])}}
                                         onClick={() => setPtypeclick(typeclick(ptypeclick, key))}>
                                     <img className="dropdownimg" src={arrow} />
                                     &nbsp;{personal.type}
