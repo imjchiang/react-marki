@@ -12,14 +12,14 @@ const Home = () =>
                 <h2>Packaging Solutions</h2>
             </div>
             <div>
-                <Link className="" to="/allproducts">
+                <Link className="" to="/displayproducts">
                     Our Products
                 </Link>
-                <Link to="/tbd1">
+                <Link to="/displayproducts">
                     <img src={placeholder}/>
                     Food Packaging
                 </Link>
-                <Link to="/tbd3">
+                <Link to="/displayproducts">
                     <img src={placeholder}/>
                     Personal Care Packaging
                 </Link>
