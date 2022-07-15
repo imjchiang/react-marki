@@ -67,34 +67,37 @@ const DisplayProducts = (props) =>
     return(
         <>
             <h1 className="sub-title">Our Products</h1>
+            <div className="sidebar-products-container">
+                <div className="sidebar">
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Food Packaging"} packaging={props.foodPack} />
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
+                </div>
 
-            <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Food Packaging"} packaging={props.foodPack} />
-            <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
-
-            {/* displays the products selected for */}
-            <div className="prod-cards">
-                {
-                    products.map(product =>
+                {/* displays the products selected for */}
+                <div className="prod-cards">
                     {
-                        if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1] && product.variant == viewedproducts[2]) ||
-                            (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1]) ||
-                            (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0]) ||
-                            (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
+                        products.map(product =>
                         {
-                            return(
-                                <form method="get" action={product.category + product.type + "/" + product.variant + "/" + product.id} className="card">
-                                    <button type="submit" className="">
-                                        <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
-                                        <div type="submit" className="card-body">
-                                            <p className="card-title">{product.name}</p>
-                                            <p className="card-text">{product.desc}</p>
-                                        </div>
-                                    </button>
-                                </form>
-                            );
-                        }
-                    })
-                } 
+                            if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1] && product.variant == viewedproducts[2]) ||
+                                (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1]) ||
+                                (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0]) ||
+                                (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
+                            {
+                                return(
+                                    <form method="get" action={product.category + product.type + "/" + product.variant + "/" + product.id} className="pcard">
+                                        <button type="submit" className="">
+                                            <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
+                                            <div type="submit" className="card-body">
+                                                <p className="card-title">{product.name}</p>
+                                                <p className="card-text">{product.desc}</p>
+                                            </div>
+                                        </button>
+                                    </form>
+                                );
+                            }
+                        })
+                    } 
+                </div>
             </div>
 
             <form className="contact-button-form" method="get" action="/contact">

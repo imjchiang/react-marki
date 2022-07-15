@@ -1,13 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import placeholder from '../logo.svg';
-import "../App.css"
+import "../css/home.css"
 
 const Home = () =>
 {
     return(
         <>
-            <div>
+            <div className="title">
                 <h1>MarKi Co., Ltd.</h1>
                 <h2>Packaging Solutions</h2>
             </div>

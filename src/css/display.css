@@ -14,12 +14,27 @@
     height: 1vh;
 }
 
+.sidebar-products-container
+{
+    display: flex;
+}
+
+.sidebar
+{
+    display: block;
+}
+
+.dropdownbutt
+{
+    width: 15vw;
+}
+
 .prod-cards
 {
     display: flex;
 }
 
-.card
+.pcard
 {
     width: 10vw;
 }
