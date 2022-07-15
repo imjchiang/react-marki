@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import placeholder from '../logo.svg';
+import dropdown from '../images/dropdown.png'
 import "../css/home.css"
 
 const Home = () =>
@@ -11,7 +12,12 @@ const Home = () =>
                 <h1>MarKi Co., Ltd.</h1>
                 <h2>Packaging Solutions</h2>
             </div>
-            <div>
+
+            <div className="scrolldiv">
+                <img className="scrolldown" src={dropdown} />
+            </div>
+
+            <div className="homecats">
                 <Link className="" to="/displayproducts">
                     Our Products
                 </Link>

@@ -28,6 +28,28 @@ h2
     height: 80vh;
 }
 
+.scrolldiv
+{
+    background-color: rgb(238, 226, 212);
+}
+
+.scrolldiv:hover
+{
+    background-color: rgb(224, 209, 192);
+}
+
+.scrolldown
+{
+    transform: rotate(90deg);
+    width: 3vw;
+    filter: opacity(0.5) drop-shadow(0 0 0 rgb(97, 152, 255));
+}
+
+.homecats
+{
+    background-color: white;
+}
+
 /* navbar css */
 
 .navbar
