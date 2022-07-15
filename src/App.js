@@ -40,7 +40,7 @@ function App() {
     }
   ];
   return (
-    <div>
+    <div className='App'>
       <Navbar />
       {/* Switch has been replaced with Routes with new react-router-dom version */}
       {/* all routes are here */}

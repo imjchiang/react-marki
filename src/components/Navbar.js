@@ -1,11 +1,12 @@
 import React from "react";
+import "../css/home.css";
 
 const Navbar = () =>
 {
     return(
         <nav className="navbar navbar-expand-lg  sticky-top">
             <div className="container-fluid">
-                <a className="home-button navbar-brand" href="/">MARKI</a>
+                <a className="home-button navbar-brand" href="/">MarKi</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
