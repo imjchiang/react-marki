@@ -55,6 +55,11 @@ h2
 .navbar
 {
     /* font-size: 2vh; */
+    background-color: rgb(238, 226, 212);
+    transition: background-color 2s linear; 
+    -moz-transition: background-color 2s linear;  
+    -webkit-transition: background-color 2s linear; 
+    -ms-transition: background-color 2s linear;
 }
 
 .nav-item
@@ -67,15 +72,21 @@ h2
 {
     /* font-size: 3vh; */
     padding-left: 0.5vw;
-    color: rgb(20, 0, 133);
+    color: rgb(113, 123, 255);
 }
 
 .nav-link
 {
-    color: rgb(20, 0, 133);
+    color: rgb(113, 123, 255);
 }
 
 .home-button:hover, .nav-link:hover
 {
-    color: rgb(124, 185, 255);
+    color: rgb(147, 197, 255);
+}
+
+.scrolled
+{
+    background-color: rgb(155, 255, 225);
+    color: white;
 }

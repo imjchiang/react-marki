@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../css/home.css";
 
 const Navbar = () =>
 {
+    const [color, setColor] = useState("top")
+    
+    useEffect(() =>
+    {
+        window.addEventListener('scroll', listenScrollEvent);
+    }, []);
+
+    let listenScrollEvent = (e) => 
+    {
+        if (window.scrollY > window.innerHeight*0.75) 
+        {
+            setColor("scrolled");
+        } 
+        else 
+        {
+            setColor("top");
+        }
+    }
+
     return(
-        <nav className="navbar navbar-expand-lg  sticky-top">
+        <nav className={"navbar navbar-expand-lg sticky-top " + color}>
             <div className="container-fluid">
                 <a className="home-button navbar-brand" href="/">MarKi</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
