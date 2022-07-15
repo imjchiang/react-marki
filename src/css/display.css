@@ -13,3 +13,13 @@
     z-index: -1;
     height: 1vh;
 }
+
+.prod-cards
+{
+    display: flex;
+}
+
+.card
+{
+    width: 10vw;
+}
