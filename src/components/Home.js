@@ -6,6 +6,14 @@ import "../css/home.css"
 
 const Home = () =>
 {
+    const goToBot = () => {
+        window.scrollTo({
+            // top: document.documentElement.scrollHeight,
+            top: window.innerHeight*0.85,
+            behavior: 'smooth',
+        });
+    }
+
     return(
         <>
             <div className="title">
@@ -13,7 +21,7 @@ const Home = () =>
                 <h2>Packaging Solutions</h2>
             </div>
 
-            <div className="scrolldiv">
+            <div className="scrolldiv" onClick={goToBot}>
                 <img className="scrolldown" src={dropdown} />
             </div>
 
