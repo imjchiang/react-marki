@@ -43,7 +43,10 @@ const Sidebar = (props) =>
             <button className="dropdownbutt"
                     onMouseOver={(e) => {arrowRot(e, true, catclick)}} 
                     onMouseLeave={(e) => {arrowRot(e, false, catclick)}} 
-                    onClick={() => setCatclick(!catclick)}>
+                    onClick={() => {
+                                        setCatclick(!catclick); 
+                                        props.handleSort(props.packagingCategory, false, false);
+                                    }}>
                 <img className="dropdownimg" src={arrow} />
                 &nbsp;{props.packagingCategory}
             </button>
@@ -59,7 +62,10 @@ const Sidebar = (props) =>
                                 <button className="dropdownbutt"
                                         onMouseOver={(e) => {arrowRot(e, true, typeclick[key])}} 
                                         onMouseLeave={(e) => {arrowRot(e, false, typeclick[key])}} 
-                                        onClick={() => setTypeclick(tclickArrConvert(typeclick, key))}>
+                                        onClick={() => {
+                                                            setTypeclick(tclickArrConvert(typeclick, key)); 
+                                                            props.handleSort(props.packagingCategory, pack.type, false);
+                                                        }}>
                                     <img className="dropdownimg" src={arrow} />
                                     &nbsp;{pack.type}
                                 </button>
@@ -69,7 +75,7 @@ const Sidebar = (props) =>
                                         pack.variants.map(variant =>
                                         {
                                             return(
-                                                <button>{variant}</button>
+                                                <button onClick={() => props.handleSort(props.packagingCategory, pack.type, variant)}>{variant}</button>
                                             )
                                         })
                                     :

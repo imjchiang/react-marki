@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   let foodPack = [
     {
-      type: "boxes and containers",
+      type: "containers",
       variants: ["paper", "plastic"]
     },
     {
@@ -27,7 +27,7 @@ function App() {
 
   let personalPack = [
     {
-      type: "boxes and containers",
+      type: "containers",
       variants: ["paper", "plastic"]
     },
     {

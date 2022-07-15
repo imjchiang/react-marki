@@ -1,18 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import Sidebar from "./Sidebar.js";
 import "../css/display.css";
 
 const DisplayProducts = (props) =>
 {
+    const [viewedproducts, setViewedproducts] = useState([]);
+
+    const handleSort = (cat, type, vari) =>
+    {
+        console.log([cat, type, vari]);
+        setViewedproducts([cat, type, vari]);
+    }
+
     // add a new array for each product type
     let products = [
         {
             // id must be the name of the folder in images
             id: "bon", 
             // name is displayed on the product page
-            name: "BON",
+            name: "Chocolate Box 1",
+            // category of product
+            category: "food",
             // type of the product
-            type: "chocBox",
+            type: "containers",
+            // variant of the product
+            variant: "paper",
             // thumbnail is the image name of the product card
             thumbnail: "bonStaggered2",
             // desc is the short description on the card
@@ -22,8 +34,10 @@ const DisplayProducts = (props) =>
         }, 
         {
             id: "mBChocBox", 
-            name: "Miami Beach",
-            type: "chocBox",
+            name: "Chocolate Box 2",
+            category: "food",
+            type: "containers",
+            variant: "paper",
             thumbnail: "mBOpen-M",
             desc: "This chocolate box features 3 windoes to view the internals of...",
             fullDesc: "This chocolate box has many different sizes to select from along with an associated ribbon which secures the lid onto the box."
@@ -31,7 +45,9 @@ const DisplayProducts = (props) =>
         {
             id: "bon", 
             name: "Cake Box",
-            type: "cakeBox",
+            category: "food",
+            type: "containers",
+            variant: "paper",
             thumbnail: "bonStaggered2",
             desc: "This chocolate box features a 3 by 9 grid of chocolate insertions...",
             fullDesc: "This is the full description of this long shaped BON chocolate box."
@@ -39,7 +55,9 @@ const DisplayProducts = (props) =>
         {
             id: "mBChocBox", 
             name: "Corrugated Box",
-            type: "corrgBox",
+            category: "personal",
+            type: "containers",
+            variant: "paper",
             thumbnail: "mBOpen-M",
             desc: "This chocolate box features 3 windoes to view the internals of...",
             fullDesc: "This chocolate box has many different sizes to select from along with an associated ribbon which secures the lid onto the box."
@@ -50,20 +68,16 @@ const DisplayProducts = (props) =>
         <>
             <h1 className="sub-title">Our Products</h1>
 
-            <Sidebar packagingCategory={"Food Packaging"} packaging={props.foodPack} />
-            <Sidebar packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
+            <Sidebar handleSort={handleSort} packagingCategory={"Food Packaging"} packaging={props.foodPack} />
+            <Sidebar handleSort={handleSort} packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
 
-            {/* displays all the products */}
-            {/* 
-                maybe place this in another component and pass all items to this component as props, 
-                can choose to render other more specific components (categories) instead if certain buttons are clicked on
-            */}
-            <div className="">
+            {/* displays the products selected for */}
+            <div className="prod-cards">
                 {
                     products.map(product =>
                     {
                         return(
-                            <form method="get" action={"/products/" + product.type + "/" + product.id} className="card">
+                            <form method="get" action={product.category + product.type + "/" + product.variant + "/" + product.id} className="card">
                                 <button type="submit" className="">
                                     <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
                                     <div type="submit" className="card-body">
