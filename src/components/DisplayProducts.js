@@ -20,7 +20,7 @@ const DisplayProducts = (props) =>
             // name is displayed on the product page
             name: "Chocolate Box 1",
             // category of product
-            category: "food",
+            category: "Food Packaging",
             // type of the product
             type: "containers",
             // variant of the product
@@ -35,7 +35,7 @@ const DisplayProducts = (props) =>
         {
             id: "mBChocBox", 
             name: "Chocolate Box 2",
-            category: "food",
+            category: "Food Packaging",
             type: "containers",
             variant: "paper",
             thumbnail: "mBOpen-M",
@@ -45,7 +45,7 @@ const DisplayProducts = (props) =>
         {
             id: "bon", 
             name: "Cake Box",
-            category: "food",
+            category: "Food Packaging",
             type: "containers",
             variant: "paper",
             thumbnail: "bonStaggered2",
@@ -55,7 +55,7 @@ const DisplayProducts = (props) =>
         {
             id: "mBChocBox", 
             name: "Corrugated Box",
-            category: "personal",
+            category: "Personal Care Packaging",
             type: "containers",
             variant: "paper",
             thumbnail: "mBOpen-M",
@@ -68,25 +68,31 @@ const DisplayProducts = (props) =>
         <>
             <h1 className="sub-title">Our Products</h1>
 
-            <Sidebar handleSort={handleSort} packagingCategory={"Food Packaging"} packaging={props.foodPack} />
-            <Sidebar handleSort={handleSort} packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
+            <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Food Packaging"} packaging={props.foodPack} />
+            <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
 
             {/* displays the products selected for */}
             <div className="prod-cards">
                 {
                     products.map(product =>
                     {
-                        return(
-                            <form method="get" action={product.category + product.type + "/" + product.variant + "/" + product.id} className="card">
-                                <button type="submit" className="">
-                                    <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
-                                    <div type="submit" className="card-body">
-                                        <p className="card-title">{product.name}</p>
-                                        <p className="card-text">{product.desc}</p>
-                                    </div>
-                                </button>
-                            </form>
-                        );
+                        if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1] && product.variant == viewedproducts[2]) ||
+                            (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1]) ||
+                            (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0]) ||
+                            (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
+                        {
+                            return(
+                                <form method="get" action={product.category + product.type + "/" + product.variant + "/" + product.id} className="card">
+                                    <button type="submit" className="">
+                                        <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
+                                        <div type="submit" className="card-body">
+                                            <p className="card-title">{product.name}</p>
+                                            <p className="card-text">{product.desc}</p>
+                                        </div>
+                                    </button>
+                                </form>
+                            );
+                        }
                     })
                 } 
             </div>

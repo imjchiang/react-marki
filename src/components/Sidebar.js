@@ -44,8 +44,13 @@ const Sidebar = (props) =>
                     onMouseOver={(e) => {arrowRot(e, true, catclick)}} 
                     onMouseLeave={(e) => {arrowRot(e, false, catclick)}} 
                     onClick={() => {
+                                        let clickStatus = !catclick;
                                         setCatclick(!catclick); 
                                         props.handleSort(props.packagingCategory, false, false);
+                                        if (!clickStatus) 
+                                        {
+                                            props.setViewedproducts([false, false, false]);
+                                        }
                                     }}>
                 <img className="dropdownimg" src={arrow} />
                 &nbsp;{props.packagingCategory}
