@@ -9,7 +9,7 @@ const Home = () =>
     const goToBot = () => {
         window.scrollTo({
             // top: document.documentElement.scrollHeight,
-            top: window.innerHeight*0.85,
+            top: window.innerHeight*0.87,
             behavior: 'smooth',
         });
     }
@@ -26,7 +26,7 @@ const Home = () =>
             </div>
 
             <div className="homecats">
-                <Link className="" to="/displayproducts">
+                <Link className="homeprod" to="/displayproducts">
                     Our Products
                 </Link>
                 <Link to="/displayproducts">
