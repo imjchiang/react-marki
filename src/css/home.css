@@ -7,13 +7,13 @@ h1, h2, .navbar
 
 h1
 {
-    font-size: 8vh;
+    font-size: 9vh;
     color: rgb(97, 152, 255);
 }
 
 h2
 {
-    font-size: 6vh;
+    font-size: 7vh;
     width: fit-content;
     color: rgb(68, 68, 68);
     background-color: rgb(97, 152, 255);
@@ -25,10 +25,10 @@ h2
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 82vh;
+    height: 86vh;
 }
 
-.scrolldiv
+.scrolldiv, .scrolldiv2
 {
     background-color: rgb(238, 226, 212);
     transition: background-color 0.4s linear; 
@@ -52,12 +52,12 @@ h2
 .homecats
 {
     background-color: rgb(255, 253, 247);
-    padding: 10vh;
+    padding: 15vh;
 }
 
 .homeprod
 {   
-    font-size: 5vh;
+    font-size: 6vh;
     font-family: "Trirong";
     color: rgb(68, 68, 68);
     background-color: rgb(97, 152, 255);
@@ -70,9 +70,54 @@ h2
 
 .homeprod:hover
 {   
-    font-size: 5vh;
-    font-family: "Trirong";
     color: rgb(40, 126, 175);
     background-color: rgb(194, 241, 255);
+}
+
+.product
+{
+    padding-top: 7vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    font-family: "Trirong";
     text-decoration: none;
+    color: rgb(111, 202, 255);
+}
+
+.product:hover
+{
+    color: rgb(40, 126, 175);
+}
+
+.product>img
+{
+    width: 35vw;
+}
+
+.prodcontainer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+.scrolldiv2
+{
+    background-color: rgb(194, 241, 255);
+}
+
+.scrolldiv2:hover
+{
+    background-color: rgb(164, 220, 236);
+}
+
+.about
+{
+    height: 80vh;
+    background-color: aquamarine;
 }
