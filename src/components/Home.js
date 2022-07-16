@@ -29,11 +29,11 @@ const Home = () =>
                 <Link className="homeprod" to="/displayproducts">
                     Our Products
                 </Link>
-                <Link to="/displayproducts">
+                <Link className="product" to="/displayproducts">
                     <img src={placeholder}/>
                     Food Packaging
                 </Link>
-                <Link to="/displayproducts">
+                <Link className="product" to="/displayproducts">
                     <img src={placeholder}/>
                     Personal Care Packaging
                 </Link>

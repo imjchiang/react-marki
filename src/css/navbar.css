@@ -1,0 +1,38 @@
+.navbar
+{
+    /* font-size: 2vh; */
+    background-color: rgb(238, 226, 212);
+    transition: background-color 1s linear; 
+    -moz-transition: background-color 1s linear;  
+    -webkit-transition: background-color 1s linear; 
+    -ms-transition: background-color 1s linear;
+}
+
+.nav-item
+{
+    padding: 0 0.5vw 0 0.5vw;
+    text-align: left;
+}
+
+.home-button
+{
+    /* font-size: 3vh; */
+    padding-left: 0.5vw;
+    color: rgb(113, 123, 255);
+}
+
+.nav-link
+{
+    color: rgb(113, 123, 255);
+}
+
+.home-button:hover, .nav-link:hover
+{
+    color: rgb(147, 197, 255);
+}
+
+.scrolled
+{
+    background-color: rgb(194, 241, 255);
+    color: white;
+}

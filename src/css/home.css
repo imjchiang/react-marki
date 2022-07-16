@@ -31,6 +31,10 @@ h2
 .scrolldiv
 {
     background-color: rgb(238, 226, 212);
+    transition: background-color 0.4s linear; 
+    -moz-transition: background-color 0.4s linear;  
+    -webkit-transition: background-color 0.4s linear; 
+    -ms-transition: background-color 0.4s linear;
 }
 
 .scrolldiv:hover
@@ -47,10 +51,9 @@ h2
 
 .homecats
 {
-    background-color: white;
+    background-color: rgb(255, 253, 247);
     padding: 10vh;
 }
-
 
 .homeprod
 {   
@@ -59,47 +62,17 @@ h2
     color: rgb(68, 68, 68);
     background-color: rgb(97, 152, 255);
     text-decoration: none;
+    transition: color 1s linear, background-color 1s linear; 
+    -moz-transition: color 1s linear, background-color 1s linear; 
+    -webkit-transition: color 1s linear, background-color 1s linear;
+    -ms-transition: color 1s linear, background-color 1s linear;
 }
 
-
-
-/* navbar css */
-
-.navbar
-{
-    /* font-size: 2vh; */
-    background-color: rgb(238, 226, 212);
-    transition: background-color 2s linear; 
-    -moz-transition: background-color 2s linear;  
-    -webkit-transition: background-color 2s linear; 
-    -ms-transition: background-color 2s linear;
-}
-
-.nav-item
-{
-    padding: 0 0.5vw 0 0.5vw;
-    text-align: left;
-}
-
-.home-button
-{
-    /* font-size: 3vh; */
-    padding-left: 0.5vw;
-    color: rgb(113, 123, 255);
-}
-
-.nav-link
-{
-    color: rgb(113, 123, 255);
-}
-
-.home-button:hover, .nav-link:hover
-{
-    color: rgb(147, 197, 255);
-}
-
-.scrolled
-{
+.homeprod:hover
+{   
+    font-size: 5vh;
+    font-family: "Trirong";
+    color: rgb(40, 126, 175);
     background-color: rgb(194, 241, 255);
-    color: white;
+    text-decoration: none;
 }
