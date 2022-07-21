@@ -56,13 +56,18 @@ h2
 .homecats
 {
     height: 86vh;
-    background-color: rgb(255, 253, 247);
-    padding: 15vh;
+    background-color: rgb(245, 252, 255);
+    padding: 14vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .homeprod
 {   
     height: fit-content;
+    width: fit-content;
+    margin-bottom: 2vh;
     font-size: 6vh;
     font-family: "Trirong";
     color: rgb(68, 68, 68);
@@ -129,5 +134,5 @@ h2
 .about
 {
     height: 98vh;
-    background-color: aquamarine;
+    background-color: rgb(214, 255, 241);
 }
