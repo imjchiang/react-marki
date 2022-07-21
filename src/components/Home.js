@@ -1,8 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import placeholder from '../logo.svg';
-import dropdown from '../images/dropdown.png'
-import "../css/home.css"
+import dropdown from '../images/dropdown.png';
+import "../css/home.css";
+import Footer from "./Footer.js";
 
 const Home = () =>
 {
@@ -18,8 +19,8 @@ const Home = () =>
         else
         {
             window.scrollTo({
-                // top: document.documentElement.scrollHeight,
-                top: window.innerHeight*1.84,
+                top: document.documentElement.scrollHeight,
+                // top: window.innerHeight*1.84,
                 behavior: 'smooth',
             });
         }
@@ -57,9 +58,22 @@ const Home = () =>
             </div>
 
             <div className="about">
-                About Us
+                <Link className="homeprod" to="/contact">
+                    About Us
+                </Link>
+                <div className="prodcontainer">
+                    <Link className="product" to="/displayproducts">
+                        <img src={placeholder}/>
+                        Food Packaging
+                    </Link>
+                    <Link className="product" to="/displayproducts">
+                        <img src={placeholder}/>
+                        Personal Care Packaging
+                    </Link>
+                </div>
             </div>
 
+            <Footer />
         </>
     )
 }

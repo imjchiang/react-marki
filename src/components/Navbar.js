@@ -12,13 +12,17 @@ const Navbar = () =>
 
     let listenScrollEvent = (e) => 
     {
-        if (window.scrollY > window.innerHeight*0.75) 
+        if (window.scrollY > window.innerHeight*0.75 && window.scrollY < window.innerHeight*1.67) 
         {
             setColor("scrolled");
         } 
-        else 
+        else if (window.scrollY <= window.innerHeight*0.75)
         {
             setColor("top");
+        }
+        else
+        {
+            setColor("bot");
         }
     }
 

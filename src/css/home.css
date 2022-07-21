@@ -133,6 +133,7 @@ h2
 
 .about
 {
-    height: 98vh;
-    background-color: rgb(214, 255, 241);
+    height: 91vh;
+    padding: 15vh;
+    background-color: rgb(253, 244, 234);
 }

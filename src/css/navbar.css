@@ -36,3 +36,18 @@
     background-color: rgb(194, 241, 255);
     color: white;
 }
+
+.bot
+{
+    background-color: rgb(238, 226, 212);
+}
+
+.footer
+{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 226, 212);
+    color: rgb(141, 141, 158);
+}
