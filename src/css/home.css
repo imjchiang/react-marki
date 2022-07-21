@@ -91,11 +91,16 @@ h2
     font-family: "Trirong";
     text-decoration: none;
     color: rgb(111, 202, 255);
+    transition: filter 0.5s linear, color 0.5s linear; 
+    -moz-transition: filter 0.5s linear, color 0.5s linear; 
+    -webkit-transition: filter 0.5s linear, color 0.5s linear;
+    -ms-transition: filter 0.5s linear, color 0.5s linear;
 }
 
 .product:hover
 {
-    color: rgb(40, 126, 175);
+    /* color: rgb(40, 126, 175); */
+    filter: opacity(0.5) drop-shadow(0 0 0 rgb(173, 175, 179));
 }
 
 .product>img
