@@ -12,7 +12,7 @@ const Home = () =>
         {
             window.scrollTo({
                 // top: document.documentElement.scrollHeight,
-                top: window.innerHeight*0.91,
+                top: window.innerHeight*0.92,
                 behavior: 'smooth',
             });
         }

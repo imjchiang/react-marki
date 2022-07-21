@@ -30,6 +30,10 @@ h2
 
 .scrolldiv, .scrolldiv2
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
     background-color: rgb(238, 226, 212);
     transition: background-color 0.4s linear; 
     -moz-transition: background-color 0.4s linear;  
@@ -51,6 +55,7 @@ h2
 
 .homecats
 {
+    height: 86vh;
     background-color: rgb(255, 253, 247);
     padding: 15vh;
 }
