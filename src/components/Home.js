@@ -11,7 +11,6 @@ const Home = () =>
         if (num == 1)
         {
             window.scrollTo({
-                // top: document.documentElement.scrollHeight,
                 top: window.innerHeight*0.92,
                 behavior: 'smooth',
             });
@@ -19,7 +18,8 @@ const Home = () =>
         else
         {
             window.scrollTo({
-                top: document.documentElement.scrollHeight,
+                // top: document.documentElement.scrollHeight,
+                top: window.innerHeight*1.84,
                 behavior: 'smooth',
             });
         }
