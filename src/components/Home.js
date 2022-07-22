@@ -1,6 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import placeholder from '../images/PersonalCare.jpg';
 import personalCare from '../images/PersonalCare.jpg';
 import food from '../images/Food.jpg';
 import aboutPan from '../images/aboutPan.png';
@@ -10,6 +9,8 @@ import Footer from "./Footer.js";
 
 const Home = () =>
 {
+    const [appear, setAppear] = useState();
+
     const goToBot = (num) => 
     {
         if (num == 1)
@@ -19,13 +20,32 @@ const Home = () =>
                 behavior: 'smooth',
             });
         }
-        else
+        else if (num == 2)
         {
             window.scrollTo({
                 top: document.documentElement.scrollHeight,
                 // top: window.innerHeight*1.84,
                 behavior: 'smooth',
             });
+        }
+        else
+        {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+    }
+
+    let textAppear = (num) =>
+    {
+        if (num === 1)
+        {
+            setAppear("appear");
+        }
+        else
+        {
+            setAppear("");
         }
     }
 
@@ -78,8 +98,17 @@ const Home = () =>
                         efficiently produced, and at a reasonable price point.
                     </p>
                 </div>
+                <div className="toTop">
+                    <p className={"topHover " + appear}>Back to Top</p>
+                    <button 
+                        className="toTopButton" 
+                        onMouseOver={() => textAppear(1)} 
+                        onMouseLeave={() => textAppear(2)} 
+                        onClick={() => goToBot(3)}>
+                            △
+                    </button>
+                </div>
             </div>
-
             <Footer />
         </>
     )

@@ -145,12 +145,13 @@ h2
 
 .abouttitle
 {
-    margin-bottom: 1vh;
+    margin-bottom: 3.5vh;
 }
 
 .aboutimg
 {
     width: 90vw;
+    padding-bottom: 3vh;
 }
 
 .aboutcontainer
@@ -167,5 +168,58 @@ h2
     font-family: "Trirong";
     font-size: 2vh;
     color: rgb(97, 152, 255);
-    width: 70vw;
+    width: 50vw;
 }
+
+.toTop
+{
+    position: absolute;
+    right: 3vh;
+    bottom: -177vh;
+    height: fit-content;
+    width: fit-content;
+}
+
+.toTopButton
+{
+    font-size: 4vh;
+    border-radius: 2vh;
+    border: 0;
+    padding: 0 0 6px 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 8vh;
+    width: 8vh;
+    background-color: rgb(97, 152, 255);
+    transition: color 0.5s linear, background-color 0.5s linear; 
+    -moz-transition: color 0.5s linear, background-color 0.5s linear; 
+    -webkit-transition: color 0.5s linear, background-color 0.5s linear;
+    -ms-transition: color 0.5s linear, background-color 0.5s linear;
+}
+
+.toTopButton:hover
+{
+    background-color: rgb(194, 241, 255);
+    color: rgb(112, 112, 112);
+}
+
+.topHover
+{
+    opacity: 0;
+    margin-bottom: 0;
+    font-family: "Trirong";
+    color: rgb(97, 152, 255);
+    transition: opacity 0.2s linear; 
+    -moz-transition: opacity 0.2s linear; 
+    -webkit-transition: opacity 0.2s linear;
+    -ms-transition: opacity 0.2s linear;
+}
+
+.appear
+{
+    opacity: 100;
+}
+
