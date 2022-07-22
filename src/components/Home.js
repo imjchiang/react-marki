@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import placeholder from '../images/PersonalCare.jpg';
 import personalCare from '../images/PersonalCare.jpg';
 import food from '../images/Food.jpg';
+import aboutPan from '../images/aboutPan.png';
 import dropdown from '../images/dropdown.png';
 import "../css/home.css";
 import Footer from "./Footer.js";
@@ -60,18 +61,22 @@ const Home = () =>
             </div>
 
             <div className="about">
-                <Link className="homeprod" to="/contact">
+                <Link className="abouttitle" to="/contact">
                     About Us
                 </Link>
-                <div className="prodcontainer">
-                    <Link className="product" to="/displayproducts">
-                        <img src={placeholder}/>
-                        Food Packaging
-                    </Link>
-                    <Link className="product" to="/displayproducts">
-                        <img src={placeholder}/>
-                        Personal Care Packaging
-                    </Link>
+                <div className="aboutcontainer">
+                    <img className="aboutimg" src={aboutPan}/>
+                    <p className="aboutblurb">
+                        MarKi Co., Ltd. was founded in [Year] to help many 
+                        different companies with the creation, mass production,
+                        and shipping of their packaging for their products.
+                    </p>
+                    <p className="aboutblurb"> 
+                        Currently, the team at MarKi Co., Ltd. helps companies 
+                        worldwide, from countries in the U.S. to those in Europe,
+                        to find packaging solutions that are presentable, 
+                        efficiently produced, and at a reasonable price point.
+                    </p>
                 </div>
             </div>
 
