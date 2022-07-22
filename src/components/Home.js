@@ -1,6 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import placeholder from '../logo.svg';
+import placeholder from '../images/PersonalCare.jpg';
+import personalCare from '../images/PersonalCare.jpg';
+import food from '../images/Food.jpg';
 import dropdown from '../images/dropdown.png';
 import "../css/home.css";
 import Footer from "./Footer.js";
@@ -43,11 +45,11 @@ const Home = () =>
                 </Link>
                 <div className="prodcontainer">
                     <Link className="product" to="/displayproducts">
-                        <img src={placeholder}/>
+                        <img src={food}/>
                         Food Packaging
                     </Link>
                     <Link className="product" to="/displayproducts">
-                        <img src={placeholder}/>
+                        <img src={personalCare}/>
                         Personal Care Packaging
                     </Link>
                 </div>
