@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/navbar.css";
 
-const Home = () =>
+const Footer = () =>
 {
     return(
         <div className="footer">
@@ -10,4 +10,4 @@ const Home = () =>
     )
 }
 
-export default Home;
+export default Footer;
