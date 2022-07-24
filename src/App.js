@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Routes, Route} from "react-router-dom";
+import {useLocation} from "react-router";
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -9,7 +10,16 @@ import ErrorPage from './components/ErrorPage';
 
 import './App.css';
 
-function App() {
+function App() 
+{
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log('route has been changed' + location.pathname);
+    var fader = document.getElementById('fader');
+    fader.classList.add('fade-out');
+  },[location.pathname]);
+
   let foodPack = [
     {
       type: "containers",
@@ -39,8 +49,10 @@ function App() {
       variants: ["cap", "pump", "labels", "others"]
     }
   ];
+  
   return (
     <div className='App'>
+      <svg id="fader"></svg>
       <Navbar />
       {/* Switch has been replaced with Routes with new react-router-dom version */}
       {/* all routes are here */}
