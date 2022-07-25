@@ -4,7 +4,7 @@ const Contact = () =>
 {
     return(
         <div>
-            <h1 class="sub-title">Contact Us</h1>
+            <h1 className="sub-title">Contact Us</h1>
             <p>t: +886 7 394 7011</p>
             <p>f: +886 7 394 4753</p>
             <p>t TW: +886 929 576840</p>
