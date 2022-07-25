@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import {Routes, Route} from "react-router-dom";
-import {useLocation} from "react-router";
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence} from 'framer-motion'
 
+// components
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import DisplayProducts from './components/DisplayProducts';
 import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
 
+// css
 import './App.css';
 
 function App() 
 {
     const location = useLocation();
-
-    useEffect(() => {
-        console.log('route has been changed' + location.pathname);
-        var fader = document.getElementById('fader');
-        fader.classList.add('fade-out');
-    },[location.pathname]);
 
     let foodPack = 
     [
@@ -54,21 +50,17 @@ function App()
     
     return (
         <div className='App'>
-        <svg id="fader"></svg>
         <Navbar />
-        {/* Switch has been replaced with Routes with new react-router-dom version */}
-        {/* all routes are here */}
-        <Routes>
-            <Route 
-                exact 
-                path='/displayproducts' 
-                element={<DisplayProducts foodPack={foodPack} personalPack={personalPack} />}
-            />
-            <Route exact path='/contact' element={<Contact />} />
-            <Route exact path='/' element={<Home />} />
-            {/* error page displayed if no component is found for the path specified */}
-            <Route path='*' element={ <ErrorPage />} />
-        </Routes>
+        {/* need for exit animation */}
+        <AnimatePresence exitBeforeEnter>
+            {/* location necessary for proper framer-motion function */}
+            <Routes location={location} key={location.pathname}>
+                <Route path='/' element={<Home/>} />
+                <Route path='/displayproducts' element={<DisplayProducts foodPack={foodPack} personalPack={personalPack} />} />
+                <Route path='/contact' element={<Contact/>} />
+                <Route path='*' element={<ErrorPage />} />
+            </Routes>
+        </AnimatePresence>
         </div>
     );
 }
