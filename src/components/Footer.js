@@ -1,10 +1,12 @@
-import React from "react";
-import "../css/navbar.css";
+import React from 'react';
+
+// css
+import '../css/navbar.css';
 
 const Footer = () =>
 {
     return(
-        <div className="footer">
+        <div className='footer'>
             © 2022 MarKi Co., Ltd. All rights reserved.
         </div>
     )
