@@ -21,11 +21,25 @@ const Home = () =>
 
     useEffect(() =>
     {
-        if (document.documentElement.scrollHeight < window.innerHeight)
+        handleResize();
+    }, []);
+
+    useEffect(() =>
+    {
+        window.addEventListener("resize", handleResize, false);
+    }, []);
+
+    const handleResize = () =>
+    {
+        if (document.documentElement.scrollHeight <= window.innerHeight)
         {
             setFootPos('bottom-footer');
         }
-    },[]);
+        else
+        {
+            setFootPos('');
+        }
+    }
 
     // determines where the window will scroll to
     const goTo = (num) => 

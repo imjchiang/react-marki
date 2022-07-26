@@ -15,11 +15,25 @@ const DisplayProducts = (props) =>
 
     useEffect(() =>
     {
+        handleResize();
+    }, []);
+
+    useEffect(() =>
+    {
+        window.addEventListener("resize", handleResize, false);
+    }, []);
+
+    const handleResize = () =>
+    {
         if (document.documentElement.scrollHeight <= window.innerHeight)
         {
             setFootPos('bottom-footer');
         }
-    }, []);
+        else
+        {
+            setFootPos('');
+        }
+    }
 
     // sets the specific category and variations to display
     const handleSort = (cat, type, vari) =>

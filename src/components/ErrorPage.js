@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -9,6 +9,30 @@ import Footer from './Footer.js';
 
 const ErrorPage = () =>
 {
+    const [footPos, setFootPos] = useState();
+
+    useEffect(() =>
+    {
+        handleResize();
+    }, []);
+
+    useEffect(() =>
+    {
+        window.addEventListener("resize", handleResize, false);
+    }, []);
+
+    const handleResize = () =>
+    {
+        if (document.documentElement.scrollHeight <= window.innerHeight)
+        {
+            setFootPos('bottom-footer');
+        }
+        else
+        {
+            setFootPos('');
+        }
+    }
+
     return(
         <motion.div
             key='error'
@@ -28,7 +52,9 @@ const ErrorPage = () =>
                 Home
             </Link>
 
-            <Footer />
+            <div className={footPos}>
+                <Footer />
+            </div>
 
         </motion.div>
     )
