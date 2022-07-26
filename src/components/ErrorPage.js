@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// components
+import Footer from './Footer.js';
+
 // css
 
 const ErrorPage = () =>
@@ -20,9 +23,13 @@ const ErrorPage = () =>
                     <h5 class='card-title'>Contact Us!!</h5>
                 </button>
             </form>
+            
             <Link className='error-home' to='/'>
                 Home
             </Link>
+
+            <Footer />
+
         </motion.div>
     )
 }
