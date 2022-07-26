@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -17,6 +17,15 @@ import aboutPan from '../images/aboutPan.png';
 const Home = () =>
 {
     const [appear, setAppear] = useState();
+    const [footPos, setFootPos] = useState();
+
+    useEffect(() =>
+    {
+        if (document.documentElement.scrollHeight < window.innerHeight)
+        {
+            setFootPos('bottom-footer');
+        }
+    },[]);
 
     // determines where the window will scroll to
     const goTo = (num) => 
@@ -62,6 +71,7 @@ const Home = () =>
 
     return(
         <motion.div
+            className='page'
             key='home'
             initial={{opacity:0}}
             animate={{opacity:1, transition:{duration:1}}}
@@ -126,7 +136,9 @@ const Home = () =>
                 </div>
             </div>
 
-            <Footer />
+            <div className={footPos}>
+                <Footer />
+            </div>
             
         </motion.div>
     )

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 // css
 import '../css/navbar.css';
@@ -6,9 +7,13 @@ import '../css/navbar.css';
 const Footer = () =>
 {
     return(
-        <div className='footer'>
+        <motion.div className='footer'
+            key='home'
+            initial={{opacity:0}}
+            animate={{opacity:1, transition:{duration:1}}}
+            exit={{opacity:0, transition:{duration:1}}}>
             © 2022 MarKi Co., Ltd. All rights reserved.
-        </div>
+        </motion.div>
     )
 }
 

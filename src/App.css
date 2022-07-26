@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Trirong:wght@500&display=swap');
 
-.App {
-  text-align: center;
-  background-color: rgb(253, 241, 226);
+.App 
+{
+    text-align: center;
+    background-color: rgb(253, 241, 226);
+    min-height: 100vh;
+}
+
+.page
+{
+    min-height: 100%;
+}
+
+.bottom-footer
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

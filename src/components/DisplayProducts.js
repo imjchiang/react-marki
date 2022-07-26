@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // components
@@ -11,6 +11,15 @@ import '../css/display.css';
 const DisplayProducts = (props) =>
 {
     const [viewedproducts, setViewedproducts] = useState([]);
+    const [footPos, setFootPos] = useState();
+
+    useEffect(() =>
+    {
+        if (document.documentElement.scrollHeight <= window.innerHeight)
+        {
+            setFootPos('bottom-footer');
+        }
+    }, []);
 
     // sets the specific category and variations to display
     const handleSort = (cat, type, vari) =>
@@ -73,6 +82,7 @@ const DisplayProducts = (props) =>
 
     return(
         <motion.div
+            className='page'
             key='products'
             initial={{opacity:0}}
             animate={{opacity:1, transition:{duration:1}}}
@@ -122,7 +132,9 @@ const DisplayProducts = (props) =>
                 </button>
             </form>
 
-            <Footer />
+            <div className={footPos}>
+                <Footer />
+            </div>
 
         </motion.div>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // components
@@ -8,8 +8,19 @@ import Footer from './Footer.js';
 
 const Contact = () =>
 {
+    const [footPos, setFootPos] = useState();
+
+    useEffect(() =>
+    {
+        if (document.documentElement.scrollHeight <= window.innerHeight)
+        {
+            setFootPos('bottom-footer');
+        }
+    }, []);
+
     return(
         <motion.div
+            className='page'
             key='contact'
             initial={{opacity:0}}
             animate={{opacity:1, transition:{duration:1}}}
@@ -27,7 +38,9 @@ const Contact = () =>
             <h2>Stephanie Yeh</h2>
             <p>Email: stephanie@marki.com.tw</p>
 
-            <Footer />
+            <div className={footPos}>
+                <Footer />
+            </div>
             
         </motion.div>
     )
