@@ -8,6 +8,19 @@
     -ms-transition: background-color 1s linear;
 }
 
+.navbar-toggler-icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggler-image
+{
+    width: 100%;
+    filter: invert(1) opacity(0.4) drop-shadow(0 0 0 rgb(17, 0, 255));
+}
+
 .nav-item
 {
     padding: 0 0.5vw 0 0.5vw;
