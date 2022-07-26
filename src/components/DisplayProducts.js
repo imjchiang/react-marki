@@ -1,11 +1,18 @@
-import React, {useState} from "react";
-import Sidebar from "./Sidebar.js";
-import "../css/display.css";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+
+// components
+import Sidebar from './Sidebar.js';
+import Footer from './Footer.js';
+
+// css
+import '../css/display.css';
 
 const DisplayProducts = (props) =>
 {
     const [viewedproducts, setViewedproducts] = useState([]);
 
+    // sets the specific category and variations to display
     const handleSort = (cat, type, vari) =>
     {
         console.log([cat, type, vari]);
@@ -65,31 +72,37 @@ const DisplayProducts = (props) =>
     ];
 
     return(
-        <>
-            <h1 className="sub-title">Our Products</h1>
-            <div className="sidebar-products-container">
-                <div className="sidebar">
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Food Packaging"} packaging={props.foodPack} />
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={"Personal Care Packaging"} packaging={props.personalPack} />
+        <motion.div
+            key='products'
+            initial={{opacity:0}}
+            animate={{opacity:1, transition:{duration:1}}}
+            exit={{opacity:0, transition:{duration:1}}}>
+
+            <h1 className='sub-title'>Our Products</h1>
+            <div className='sidebar-products-container'>
+                <div className='sidebar'>
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
                 </div>
 
                 {/* displays the products selected for */}
-                <div className="prod-cards">
+                <div className='prod-cards'>
                     {
                         products.map(product =>
                         {
+                            // goes through all products to pick out products that match category and variation for display
                             if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1] && product.variant == viewedproducts[2]) ||
                                 (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1]) ||
                                 (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0]) ||
                                 (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
                             {
                                 return(
-                                    <form method="get" action={product.category + product.type + "/" + product.variant + "/" + product.id} className="pcard">
-                                        <button type="submit" className="">
-                                            <img src={require("../images/" + product.id + "/" + product.thumbnail + ".JPG")} className="card-img-top" alt="..." />
-                                            <div type="submit" className="card-body">
-                                                <p className="card-title">{product.name}</p>
-                                                <p className="card-text">{product.desc}</p>
+                                    <form method='get' action={product.category + product.type + '/' + product.variant + '/' + product.id} className='pcard'>
+                                        <button type='submit' className=''>
+                                            <img src={require('../images/' + product.id + '/' + product.thumbnail + '.JPG')} className='card-img-top' alt='...' />
+                                            <div type='submit' className='card-body'>
+                                                <p className='card-title'>{product.name}</p>
+                                                <p className='card-text'>{product.desc}</p>
                                             </div>
                                         </button>
                                     </form>
@@ -100,12 +113,15 @@ const DisplayProducts = (props) =>
                 </div>
             </div>
 
-            <form className="contact-button-form" method="get" action="/contact">
-                <button type="submit" className="card contact-button">
-                    <h5 className="card-title">Looking for something else?</h5>
+            <form className='contact-button-form' method='get' action='/contact'>
+                <button type='submit' className='card contact-button'>
+                    <h5 className='card-title'>Looking for something else?</h5>
                 </button>
             </form>
-        </>
+
+            <Footer />
+
+        </motion.div>
     );
 }
 
