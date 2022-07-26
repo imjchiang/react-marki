@@ -1,6 +1,10 @@
-import React, {useState} from "react";
-import arrow from "../images/dropdown.png";
-import "../css/display.css";
+import React, {useState} from 'react';
+
+// css
+import '../css/display.css';
+
+// images
+import arrow from '../images/dropdown.png';
 
 const Sidebar = (props) =>
 {
@@ -21,13 +25,13 @@ const Sidebar = (props) =>
     {
         if (clickStatus || mouseOver)
         {
-            // console.log("arrow is hovered or clicked");
-            e.target.firstChild.style.transform = "rotate(90deg)";
+            // console.log('arrow is hovered or clicked');
+            e.target.firstChild.style.transform = 'rotate(90deg)';
         }
         else
         {
-            // console.log("arrow is NOT hovered or clicked");
-            e.target.firstChild.style.transform = "rotate(0deg)"
+            // console.log('arrow is NOT hovered or clicked');
+            e.target.firstChild.style.transform = 'rotate(0deg)'
         }
 
         // if the category is closed, closed all types of the category
@@ -39,8 +43,8 @@ const Sidebar = (props) =>
 
     return(
         <>
-            {/* if the "button" is clicked, the sidebar for food packaging is expanded */}
-            <button className="dropdownbutt"
+            {/* if the 'button' is clicked, the sidebar for food packaging is expanded */}
+            <button className='dropdownbutt'
                     onMouseOver={(e) => {arrowRot(e, true, catclick)}} 
                     onMouseLeave={(e) => {arrowRot(e, false, catclick)}} 
                     onClick={() => {
@@ -52,10 +56,10 @@ const Sidebar = (props) =>
                                             props.setViewedproducts([false, false, false]);
                                         }
                                     }}>
-                <img className="dropdownimg" src={arrow} alt='dropdown arrow'/>
+                <img className='dropdownimg' src={arrow} alt='dropdown arrow'/>
                 &nbsp;{props.packagingCategory}
             </button>
-            <div className="">
+            <div className=''>
             {
                 // checks whether sidebar is expanded or not and renders if so
                 catclick ?   
@@ -64,14 +68,14 @@ const Sidebar = (props) =>
                         return(
                             <>
                                 {/* if the button is clicked, the variants of the type is set to expand */}
-                                <button className="dropdownbutt"
+                                <button className='dropdownbutt'
                                         onMouseOver={(e) => {arrowRot(e, true, typeclick[key])}} 
                                         onMouseLeave={(e) => {arrowRot(e, false, typeclick[key])}} 
                                         onClick={() => {
                                                             setTypeclick(tclickArrConvert(typeclick, key)); 
                                                             props.handleSort(props.packagingCategory, pack.type, false);
                                                         }}>
-                                    <img className="dropdownimg" src={arrow} alt='dropdown arrow'/>
+                                    <img className='dropdownimg' src={arrow} alt='dropdown arrow'/>
                                     &nbsp;{pack.type}
                                 </button>
                                 {
