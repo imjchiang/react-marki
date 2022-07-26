@@ -1,9 +1,12 @@
-import React, {useEffect, useState} from "react";
-import "../css/navbar.css";
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+
+// css
+import '../css/navbar.css';
 
 const Navbar = () =>
 {
-    const [color, setColor] = useState("top")
+    const [color, setColor] = useState('top')
     
     useEffect(() =>
     {
@@ -14,54 +17,54 @@ const Navbar = () =>
     {
         if (window.scrollY > window.innerHeight*0.75 && window.scrollY < window.innerHeight*1.67) 
         {
-            setColor("scrolled");
+            setColor('scrolled');
         } 
         else if (window.scrollY <= window.innerHeight*0.75)
         {
-            setColor("top");
+            setColor('top');
         }
         else
         {
-            setColor("bot");
+            setColor('bot');
         }
     }
 
     return(
-        <nav className={"navbar navbar-expand-lg sticky-top " + color}>
-            <div className="container-fluid">
-                <a className="home-button navbar-brand" href="/">MarKi</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+        <nav className={'navbar navbar-expand-lg sticky-top ' + color}>
+            <div className='container-fluid'>
+                <Link className='home-button navbar-brand' to='/'>MarKi</Link>
+                <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+                <span className='navbar-toggler-icon'></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/">Home</a>
+                <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+                <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+                    <li className='nav-item'>
+                        <Link className='nav-link' aria-current='page' to='/'>Home</Link>
                     </li>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li className='nav-item dropdown'>
+                        <Link className='nav-link dropdown-toggle' to='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                             Our Products
-                        </a>
-                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/displayproducts">All Products</a></li>
-                            <li><a className="dropdown-item" href="/displayproducts">Food Packaging</a></li>
-                            <li><a className="dropdown-item" href="/displayproducts">Personal Care Packaging</a></li>
-                            <li><hr className="dropdown-divider" /></li>
-                            <li><a className="dropdown-item" href="/displayproducts">Boxes</a></li>
-                            <li><a className="dropdown-item" href="/displayproducts">Bottles</a></li>
-                            <li><a className="dropdown-item" href="/displayproducts">Components</a></li>
+                        </Link>
+                        <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+                            <li><Link className='dropdown-item' to='/displayproducts'>All Products</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Food Packaging</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Personal Care Packaging</Link></li>
+                            <li><hr className='dropdown-divider' /></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Boxes</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Bottles</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Components</Link></li>
                         </ul>
                     </li>
-                    {/* <li className="nav-item">
-                        <a className="nav-link" href="/about">About Us</a>
+                    {/* <li className='nav-item'>
+                        <Link className='nav-link' to='/about'>About Us</Link>
                     </li> */}
-                    <li className="nav-item">
-                        <a className="nav-link" href="/contact">Contact Us</a>
+                    <li className='nav-item'>
+                        <Link className='nav-link' to='/contact'>Contact Us</Link>
                     </li>
                 </ul>
-                <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
+                <form className='d-flex' role='search'>
+                    <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
+                    <button className='btn btn-outline-success' type='submit'>Search</button>
                 </form>
                 </div>
             </div>
