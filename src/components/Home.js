@@ -73,7 +73,7 @@ const Home = () =>
             </div>
 
             <div className='scrolldiv' onClick={() => goTo(1)}>
-                <img className='scrolldown' src={dropdown} />
+                <img className='scrolldown' src={dropdown} alt='dropdown arrow'/>
             </div>
 
             <div className='homecats'>
@@ -82,18 +82,18 @@ const Home = () =>
                 </Link>
                 <div className='prodcontainer'>
                     <Link className='product' to='/displayproducts'>
-                        <img src={food}/>
+                        <img src={food} alt='food packaging'/>
                         Food Packaging
                     </Link>
                     <Link className='product' to='/displayproducts'>
-                        <img src={personalCare}/>
+                        <img src={personalCare} alt='personal care packaging'/>
                         Personal Care Packaging
                     </Link>
                 </div>
             </div>
 
             <div className='scrolldiv2' onClick={() => goTo(2)}>
-                <img className='scrolldown' src={dropdown} />
+                <img className='scrolldown' src={dropdown} alt='dropdown arrow'/>
             </div>
 
             <div className='about'>
@@ -101,7 +101,7 @@ const Home = () =>
                     About Us
                 </Link>
                 <div className='aboutcontainer'>
-                    <img className='aboutimg' src={aboutPan}/>
+                    <img className='aboutimg' src={aboutPan} alt='panoramic building'/>
                     <p className='aboutblurb'>
                         MarKi Co., Ltd. was founded in [Year] to help many 
                         different companies with the creation, mass production,

@@ -52,7 +52,7 @@ const Sidebar = (props) =>
                                             props.setViewedproducts([false, false, false]);
                                         }
                                     }}>
-                <img className="dropdownimg" src={arrow} />
+                <img className="dropdownimg" src={arrow} alt='dropdown arrow'/>
                 &nbsp;{props.packagingCategory}
             </button>
             <div className="">
@@ -71,7 +71,7 @@ const Sidebar = (props) =>
                                                             setTypeclick(tclickArrConvert(typeclick, key)); 
                                                             props.handleSort(props.packagingCategory, pack.type, false);
                                                         }}>
-                                    <img className="dropdownimg" src={arrow} />
+                                    <img className="dropdownimg" src={arrow} alt='dropdown arrow'/>
                                     &nbsp;{pack.type}
                                 </button>
                                 {
