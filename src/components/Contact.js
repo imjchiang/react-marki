@@ -12,11 +12,25 @@ const Contact = () =>
 
     useEffect(() =>
     {
+        handleResize();
+    }, []);
+
+    useEffect(() =>
+    {
+        window.addEventListener("resize", handleResize, false);
+    }, []);
+
+    const handleResize = () =>
+    {
         if (document.documentElement.scrollHeight <= window.innerHeight)
         {
             setFootPos('bottom-footer');
         }
-    }, []);
+        else
+        {
+            setFootPos('');
+        }
+    }
 
     return(
         <motion.div
