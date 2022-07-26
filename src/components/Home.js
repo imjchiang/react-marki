@@ -21,7 +21,7 @@ const Home = () =>
     // determines where the window will scroll to
     const goTo = (num) => 
     {
-        if (num == 1)
+        if (num === 1)
         {
             // scroll to second section
             window.scrollTo({
@@ -29,7 +29,7 @@ const Home = () =>
                 behavior: 'smooth',
             });
         }
-        else if (num == 2)
+        else if (num === 2)
         {
             // scroll to bottom
             window.scrollTo({

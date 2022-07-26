@@ -91,9 +91,9 @@ const DisplayProducts = (props) =>
                         products.map(product =>
                         {
                             // goes through all products to pick out products that match category and variation for display
-                            if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1] && product.variant == viewedproducts[2]) ||
-                                (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0] && product.type == viewedproducts[1]) ||
-                                (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category == viewedproducts[0]) ||
+                            if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category === viewedproducts[0] && product.type === viewedproducts[1] && product.variant === viewedproducts[2]) ||
+                                (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category === viewedproducts[0] && product.type === viewedproducts[1]) ||
+                                (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category === viewedproducts[0]) ||
                                 (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
                             {
                                 return(
@@ -108,6 +108,9 @@ const DisplayProducts = (props) =>
                                     </form>
                                 );
                             }
+                            return(
+                                <></>
+                            );
                         })
                     } 
                 </div>
