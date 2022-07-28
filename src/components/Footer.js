@@ -1,9 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// css
-import '../css/navbar.css';
-
 const Footer = () =>
 {
     return(

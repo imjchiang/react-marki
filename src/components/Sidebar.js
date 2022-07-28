@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
 
-// css
-import '../css/display.css';
-
 // images
 import arrow from '../images/dropdown.png';
 
