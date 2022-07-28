@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Footer from './Footer.js';
 
 // css
+import '../css/contact.css';
 
 const Contact = () =>
 {
@@ -39,18 +40,25 @@ const Contact = () =>
             initial={{opacity:0}}
             animate={{opacity:1, transition:{duration:1}}}
             exit={{opacity:0, transition:{duration:1}}}>
+            
+            <div className='contact-page'>
+                <h1 className='sub-title'>Contact Us</h1>
+                <p>Telephone: &nbsp; +886 7 394 7011</p>
+                <p>Fax: &nbsp; +886 7 394 4753</p>
+                <p>Telephone TW: &nbsp; +886 929 576840</p>
+                <p>Telephone US: &nbsp; 650 924 7662</p>
 
-            <h1 className='sub-title'>Contact Us</h1>
-            <p>t: +886 7 394 7011</p>
-            <p>f: +886 7 394 4753</p>
-            <p>t TW: +886 929 576840</p>
-            <p>t US: 650 924 7662</p>
-
-            <h2>Kathy Chien</h2>
-            <p>Email: kathy@marki.com.tw</p>
-
-            <h2>Stephanie Yeh</h2>
-            <p>Email: stephanie@marki.com.tw</p>
+                <div className='contact-container'>
+                    <div className='individual-contact'>
+                        <h2 className='contact-name'>Kathy Chien</h2>
+                        <p>Email: &nbsp; kathy@marki.com.tw</p>                
+                    </div>
+                    <div className='individual-contact'>
+                        <h2 className='contact-name'>Stephanie Yeh</h2>
+                        <p>Email: &nbsp; stephanie@marki.com.tw</p>
+                    </div>
+                </div>
+            </div>
 
             <div className={footPos}>
                 <Footer />

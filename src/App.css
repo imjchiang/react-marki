@@ -18,3 +18,9 @@
     bottom: 0;
     width: 100%;
 }
+
+.sub-title
+{
+    padding-top: 10vh;
+    padding-bottom: 2vh;
+}

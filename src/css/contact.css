@@ -1,0 +1,29 @@
+p
+{
+    font-family: 'Trirong';
+    font-size: 2vh;
+}
+
+.contact-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.individual-contact
+{
+    margin: 6vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-name
+{
+    color: rgb(119, 151, 255);
+    background-color: transparent;
+    font-size: 4vh;
+}
