@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Footer from './Footer.js';
 
 // css
-import '../css/contact.css';
+import '../css/contact-error.css';
 
 const Contact = () =>
 {
