@@ -52,9 +52,11 @@ const DisplayProducts = (props) =>
             // category of product
             category: "Food Packaging",
             // type of the product
-            type: "containers",
-            // variant of the product
-            variant: "paper",
+            type: "Labels",
+            // material of the product
+            material: "Paper",
+            // finish of the product
+            finish: ["Matte"],
             // thumbnail is the image name of the product card
             thumbnail: "bonStaggered2",
             // desc is the short description on the card
@@ -66,8 +68,9 @@ const DisplayProducts = (props) =>
             id: "mBChocBox", 
             name: "Chocolate Box 2",
             category: "Food Packaging",
-            type: "containers",
-            variant: "paper",
+            type: "Ribbons",
+            material: "Plastic",
+            finish: ["Glossy/Polished"],
             thumbnail: "mBOpen-M",
             desc: "This chocolate box features 3 windoes to view the internals of...",
             fullDesc: "This chocolate box has many different sizes to select from along with an associated ribbon which secures the lid onto the box."
@@ -76,8 +79,9 @@ const DisplayProducts = (props) =>
             id: "bon", 
             name: "Cake Box",
             category: "Food Packaging",
-            type: "containers",
-            variant: "paper",
+            type: "Bottles",
+            material: "Glass",
+            finish: ["Glossy/Polished", "Waterproof"],
             thumbnail: "bonStaggered2",
             desc: "This chocolate box features a 3 by 9 grid of chocolate insertions...",
             fullDesc: "This is the full description of this long shaped BON chocolate box."
@@ -86,8 +90,9 @@ const DisplayProducts = (props) =>
             id: "mBChocBox", 
             name: "Corrugated Box",
             category: "Personal Care Packaging",
-            type: "containers",
-            variant: "paper",
+            type: "Containers",
+            material: "Metal",
+            finish: ["Matte", "Waterproof"],
             thumbnail: "mBOpen-M",
             desc: "This chocolate box features 3 windoes to view the internals of...",
             fullDesc: "This chocolate box has many different sizes to select from along with an associated ribbon which secures the lid onto the box."
@@ -105,8 +110,10 @@ const DisplayProducts = (props) =>
             <h1 className='sub-title'>Our Products</h1>
             <div className='sidebar-products-container'>
                 <div className='sidebar'>
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
+                    {/* <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Accessories'} packaging={props.accessories} /> */}
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packaging={props.productDetails} />
                 </div>
 
                 {/* displays the products selected for */}
@@ -121,7 +128,7 @@ const DisplayProducts = (props) =>
                                 (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
                             {
                                 return(
-                                    <form method='get' action={product.category + product.type + '/' + product.variant + '/' + product.id} className='pcard'>
+                                    <form method='get' action={product.category + product.type + '/' + product.material + '/' + product.id} className='pcard'>
                                         <button type='submit' className=''>
                                             <img src={require('../images/' + product.id + '/' + product.thumbnail + '.JPG')} className='card-img-top' alt='...' />
                                             <div type='submit' className='card-body'>
