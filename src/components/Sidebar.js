@@ -41,8 +41,8 @@ const Sidebar = (props) =>
     return(
         <>
             <div className='all-deets'>
-            <button className='collapsing-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapsedTarget' aria-expanded='false' aria-controls='collapsedTarget'>Filters</button>
-            <div className='collapse' id='collapsedTarget'>
+                <button className='collapsing-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapsedTarget' aria-expanded='false' aria-controls='collapsedTarget'>Filters</button>
+                <div className='collapse' id='collapsedTarget'>
                     {
                         Object.keys(props.productDetails).map(deets =>
                         {
