@@ -16,38 +16,46 @@ function App()
 {
     const location = useLocation();
 
-    let foodPack = 
-    [
-        {
-            type: "containers",
-            variants: ["paper", "plastic"]
-        },
-        {
-            type: "bottles",
-            variants: ["wine", "others"]
-        },
-        {
-            type: "components",
-            variants: ["stickers", "ribbons", "labels"]
-        }
-    ];
+    // let foodPack = 
+    // [
+    //     {
+    //         type: "containers",
+    //         variants: ["paper", "plastic"]
+    //     },
+    //     {
+    //         type: "bottles",
+    //         variants: ["wine", "others"]
+    //     }
+    //     {
+    //         type: "components",
+    //         variants: ["stickers", "ribbons", "labels"]
+    //     }
+    // ];
 
-    let personalPack = 
-    [
-        {
-            type: "containers",
-            variants: ["paper", "plastic"]
-        },
-        {
-            type: "bottles",
-            variants: ["plastic", "glass"]
-        },
-        {
-            type: "components",
-            variants: ["cap", "pump", "labels", "others"]
-        }
-    ];
+    // let personalPack = 
+    // [
+    //     {
+    //         type: "containers",
+    //         variants: ["paper", "plastic"]
+    //     },
+    //     {
+    //         type: "bottles",
+    //         variants: ["plastic", "glass"]
+    //     }
+    //     {
+    //         type: "components",
+    //         variants: ["cap", "pump", "labels", "others"]
+    //     }
+    // ];
     
+    let productDetails =
+    {
+        category: ["Food Packaging", "Personal Care Packaging", "Accessories"],
+        type: ["Containers", "Bottles", "Ribbons", "Labels", "Stickers", "Caps", "Pumps", "Others"],
+        material: ["Plastic", "Paper", "Glass", "Metal", "Fabric", "Other"],
+        finish: ["Matte", "Glossy/Polished", "Waterproof"]
+    };
+
     return (
         <div className='App'>
         <Navbar />
@@ -56,7 +64,7 @@ function App()
             {/* location necessary for proper framer-motion function */}
             <Routes location={location} key={location.pathname}>
                 <Route path='/' element={<Home/>} />
-                <Route path='/displayproducts' element={<DisplayProducts foodPack={foodPack} personalPack={personalPack} />} />
+                <Route path='/displayproducts' element={<DisplayProducts productDetails={productDetails} />} />
                 <Route path='/contact' element={<Contact/>} />
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
