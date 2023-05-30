@@ -113,7 +113,7 @@ const DisplayProducts = (props) =>
                     {/* <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Accessories'} packaging={props.accessories} /> */}
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packaging={props.productDetails} />
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} productDetails={props.productDetails} />
                 </div>
 
                 {/* displays the products selected for */}
