@@ -32,6 +32,8 @@ const Navbar = () =>
         }
     }
 
+// add about us dropdown that links to bottom of home page
+
     return(
         <nav className={'navbar navbar-expand-lg sticky-top ' + color}>
             <div className='container-fluid'>
