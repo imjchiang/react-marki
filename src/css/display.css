@@ -1,4 +1,4 @@
-.dropdownbutt
+/* .dropdownbutt
 {
     display: flex;
     background-color: transparent;
@@ -12,22 +12,109 @@
     position: relative;
     z-index: 1;
     height: 1vh;
-}
+} */
 
 .sidebar-products-container
 {
-    display: flex;
+    display: inline-block;
 }
 
-.sidebar
+/* .sidebar
 {
-    display: block;
+    display: inline-flex;
+} */
+
+.collapsing-button
+{
+    display: flex;
+    border-radius: 0.5vh;
+    border: 0.2vh solid rgb(97, 152, 255);
+    background-color: rgb(253, 244, 234);
+    transition: color 0.7s linear, background-color 1s linear; 
+    -moz-transition: color 0.7s linear, background-color 1s linear; 
+    -webkit-transition: color 0.7s linear, background-color 1s linear;
+    -ms-transition: color 0.7s linear, background-color 1s linear;
 }
 
-.dropdownbutt
+.collapsing-button:hover
+{
+    background-color: rgb(157, 191, 255);
+}
+
+.all-deets
+{
+    background-color: rgb(242, 247, 255);
+    padding: 1vh;
+    border-radius: 1vh;
+    border: 0.3vh solid rgb(97, 152, 255);
+}
+
+.deets
+{
+    display: flex;
+    align-items: center;
+    padding: 0.6vh;
+}
+
+.deets-name
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1.8vh;
+}
+
+.deet
+{
+    display: flex;
+    align-content: center;
+    padding-left: 1.4vh;
+    font-size: 1.6vh;
+    --form-control-color: rgb(97, 152, 255);
+}
+
+.check-label
+{
+    margin-left: 0.25vh;
+}
+
+input[type="checkbox"] 
+{
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    width: 1.8vh;
+    height: 1.8vh;
+    border: 0.3vh solid currentColor;
+    border-radius: 0.2vh;
+    transform: translateY(0.3vh);
+    display: grid;
+    place-content: center;
+}
+  
+input[type="checkbox"]::before 
+{
+    place-content: center;
+    content: "";
+    width: 0.8vh;
+    height: 0.8vh;
+    transform: scale(0);
+    transition: 100ms transform ease-in-out;
+    -moz-transition: 100ms transform ease-in-out; 
+    -webkit-transition: 100ms transform ease-in-out;
+    -ms-transition: 100ms transform ease-in-out;
+    box-shadow: inset 1vh 1vh var(--form-control-color);
+}
+  
+input[type="checkbox"]:checked::before 
+{
+    transform: scale(1);
+}
+
+/* .dropdownbutt
 {
     width: 15vw;
-}
+} */
 
 .prod-cards
 {
