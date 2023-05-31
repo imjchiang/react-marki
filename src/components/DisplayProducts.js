@@ -109,8 +109,8 @@ const DisplayProducts = (props) =>
             exit={{opacity:0, transition:{duration:1}}}>
 
             <h1 className='sub-title'>Our Products</h1>
-            <div className='sidebar-products-container'>
-                <div className='sidebar'>
+            <div className='products-page-wrapper'>
+                <div className='filter'>
                     {/* <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Accessories'} packaging={props.accessories} /> */}
@@ -118,7 +118,7 @@ const DisplayProducts = (props) =>
                 </div>
 
                 {/* displays the products selected for */}
-                <div className='prod-cards'>
+                <div className='all-product-cards'>
                     {
                         products.map(product =>
                         {
@@ -129,15 +129,17 @@ const DisplayProducts = (props) =>
                                 (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
                             {
                                 return(
-                                    <form method='get' action={product.category + product.type + '/' + product.material + '/' + product.id} className='pcard'>
-                                        <button type='submit' className=''>
-                                            <img src={require('../images/' + product.id + '/' + product.thumbnail + '.JPG')} className='card-img-top' alt='...' />
-                                            <div type='submit' className='card-body'>
-                                                <p className='card-title'>{product.name}</p>
-                                                <p className='card-text'>{product.desc}</p>
+                                    <div className='product-wrapper'>
+                                        <Link className='product-link' to={product.category + product.type + '/' + product.material + '/' + product.id}>
+                                            <div className='product-card'>
+                                                    <img src={require('../images/' + product.id + '/' + product.thumbnail + '.JPG')} className='product-img' alt='...' />
+                                                    <div type='submit' className='card-text'>
+                                                        <p className='product-name'>{product.name}</p>
+                                                        <p className='product-desc'>{product.desc}</p>
+                                                    </div>
                                             </div>
-                                        </button>
-                                    </form>
+                                        </Link>
+                                    </div>
                                 );
                             }
                             return(
@@ -148,8 +150,8 @@ const DisplayProducts = (props) =>
                 </div>
             </div>
 
-            <div className='contact-button-form'>
-                <Link className='card contact-button' to='/contact'>
+            <div className='contact-button-wrapper'>
+                <Link className='contact-button' to='/contact'>
                     <h5 className='card-title'>Looking for something else?</h5>
                 </Link>
             </div>
