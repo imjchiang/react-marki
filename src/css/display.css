@@ -1,36 +1,26 @@
-/* .dropdownbutt
-{
-    display: flex;
-    background-color: transparent;
-    z-index: 2;
-    justify-content: center;
-    align-items: center;
-}
-
-.dropdownimg
-{
-    position: relative;
-    z-index: 1;
-    height: 1vh;
-} */
-
-.sidebar-products-container
+.products-page-wrapper
 {
     display: inline-block;
 }
 
-/* .sidebar
-{
-    display: inline-flex;
-} */
 
-.collapsing-button
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------- FILTER CSS ------------------------------------ */
+/* ----------------------------------------------------------------------------------- */
+
+.filter-wrapper
+{
+    width: 80vh;
+    color: rgb(68, 68, 68);
+    padding-bottom: 0.1vh;
+}
+
+.filter-button
 {
     display: flex;
+    border: 0;
     font-size: 1.8vh;
     color: rgb(68, 68, 68);
-    /* border-radius: 0.5vh; */
-    border: 0;
     background-color: rgb(253, 244, 234);
     transition: color 0.7s linear, background-color 1s linear; 
     -moz-transition: color 0.7s linear, background-color 1s linear; 
@@ -38,7 +28,7 @@
     -ms-transition: color 0.7s linear, background-color 1s linear;
 }
 
-.collapsing-button:hover
+.filter-button:hover
 {
     background-color: rgb(157, 191, 255);
 }
@@ -51,33 +41,14 @@ hr.filter-top-line
     opacity: 1;
 }
 
-hr.filter-bot-line
-{
-    margin: 0;
-    padding: 0;
-    border: 0.1vh solid rgb(97, 152, 255);
-    opacity: 1;
-    margin-bottom: 1vh;
-}
-
-.all-deets
-{
-    width: 80vh;
-    color: rgb(68, 68, 68);
-    /* background-color: rgb(242, 247, 255); */
-    padding-bottom: 0.1vh;
-    /* border-radius: 1vh; */
-    /* border: 0.3vh solid rgb(97, 152, 255); */
-}
-
-.deets
+.detail-row
 {
     display: flex;
     align-items: center;
     padding: 0.6vh;
 }
 
-.deets-name
+.detail-category
 {
     margin: 0;
     padding: 0;
@@ -86,7 +57,7 @@ hr.filter-bot-line
     color: rgb(52, 123, 255);
 }
 
-.deet
+.specific-detail
 {
     display: flex;
     align-content: center;
@@ -96,29 +67,23 @@ hr.filter-bot-line
     --form-control-color: rgb(97, 152, 255);
 }
 
-.check-label
-{
-    margin-left: 0.25vh;
-}
-
 input[type="checkbox"] 
 {
-    appearance: none;
-    background-color: #fff;
-    margin: 0;
-    width: 1.8vh;
-    height: 1.8vh;
-    border: 0.3vh solid currentColor;
-    border-radius: 0.2vh;
-    transform: translateY(0.21vh);
     display: grid;
     place-content: center;
+    margin: 0;
+    border: 0.3vh solid currentColor;
+    border-radius: 0.2vh;
+    width: 1.8vh;
+    height: 1.8vh;
+    transform: translateY(0.21vh);
+    appearance: none;
+    background-color: #fff;
 }
   
 input[type="checkbox"]::before 
 {
     place-content: center;
-    content: "";
     width: 0.8vh;
     height: 0.8vh;
     transform: scale(0);
@@ -127,6 +92,7 @@ input[type="checkbox"]::before
     -webkit-transition: 100ms transform ease-in-out;
     -ms-transition: 100ms transform ease-in-out;
     box-shadow: inset 1vh 1vh var(--form-control-color);
+    content: "";
 }
   
 input[type="checkbox"]:checked::before 
@@ -134,24 +100,52 @@ input[type="checkbox"]:checked::before
     transform: scale(1);
 }
 
-/* .dropdownbutt
+.checkbox-label
 {
-    width: 15vw;
-} */
+    margin-left: 0.25vh;
+}
 
-.prod-cards
+hr.filter-bot-line
 {
+    margin: 0;
+    margin-bottom: 1vh;
+    padding: 0;
+    border: 0.1vh solid rgb(97, 152, 255);
+    opacity: 1;
+}
+
+
+/* ----------------------------------------------------------------------------------- */
+/* -------------------------------- PRODUCT CARDS CSS -------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+
+.all-product-cards
+{
+    /* will need adaptive resizing for other devices */
     display: flex;
     width: 80vh;
     height: fit-content;
 }
 
-.pcard>button
+.product-wrapper
 {
-    border-radius: 1vh;
+    margin: 0.25vh;
+    border: 0.2vh solid black;
+    padding: 0;
+}
+
+.product-link
+{
+    text-decoration: none;
+}
+
+.product-card
+{
+    margin: 0.25vh;
     border: 0;
-    margin: 0.5vh;
-    width: 19vh;
+    border-radius: 1vh;
+    padding: 0.7vh;
+    width: 18.725vh;
     height: 26vh;
     background-color: rgba(201, 220, 255, 0.87);
     transition: color 0.7s linear, background-color 1s linear; 
@@ -160,43 +154,48 @@ input[type="checkbox"]:checked::before
     -ms-transition: color 0.7s linear, background-color 1s linear;
 }
 
-.pcard>button:hover
+.product-card:hover
 {
     background-color: rgba(174, 192, 223, 0.87);
-    
 }
 
-.card-body
+.product-img
 {
-    padding-top: 0.5vh;
-}
-
-.card-title
-{
-    margin-bottom: 0.1vh;
-    color: rgb(97, 152, 255);
-    font-size: 1.6vh;
+    border-radius: 0.7vh;
+    width: 17vh;
+    height: 14vh;
 }
 
 .card-text
 {
-    color: rgb(68, 68, 68);
+    margin-top: 1.2vh;
+}
+
+.product-name
+{
+    margin-bottom: 0.1vh;
+    font-size: 1.6vh;
+    color: rgb(97, 152, 255);
+}
+
+.product-desc
+{
+    margin: 0;
     font-size: 1.3vh;
+    color: rgb(68, 68, 68);
 }
 
-.card-img-top
-{
-    height: 14vh;
-    width: 17vh;
-    border-radius: 0.7vh;
-}
 
-.contact-button-form
+/* ----------------------------------------------------------------------------------- */
+/* ------------------------------- CONTACT BUTTON CSS -------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+
+.contact-button-wrapper
 {
-    margin: 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2vh;
 }
 
 .contact-button
