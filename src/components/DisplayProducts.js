@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // components
 import Sidebar from './Sidebar.js';
@@ -147,11 +148,11 @@ const DisplayProducts = (props) =>
                 </div>
             </div>
 
-            <form className='contact-button-form' method='get' action='/contact'>
-                <button type='submit' className='card contact-button'>
+            <div className='contact-button-form'>
+                <Link className='card contact-button' to='/contact'>
                     <h5 className='card-title'>Looking for something else?</h5>
-                </button>
-            </form>
+                </Link>
+            </div>
 
             <div className={footPos}>
                 <Footer />
