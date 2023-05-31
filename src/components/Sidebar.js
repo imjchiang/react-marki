@@ -42,6 +42,7 @@ const Sidebar = (props) =>
         <>
             <div className='all-deets'>
                 <button className='collapsing-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapsedTarget' aria-expanded='false' aria-controls='collapsedTarget'>Filters</button>
+                <hr className='filter-top-line' />
                 <div className='collapse' id='collapsedTarget'>
                     {
                         Object.keys(props.productDetails).map(deets =>
@@ -68,6 +69,7 @@ const Sidebar = (props) =>
                     }
                 </div>
             </div>
+            <hr className='filter-bot-line' />
         </>
         // <>
         //     if the 'button' is clicked, the sidebar for food packaging is expanded
