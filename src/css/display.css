@@ -18,19 +18,22 @@
 .filter-button
 {
     display: flex;
+    padding: 0.7vh 1vh 0.5vh 1vh;
     border: 0;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
     font-size: 1.8vh;
     color: rgb(68, 68, 68);
-    background-color: rgb(253, 244, 234);
-    transition: color 0.7s linear, background-color 1s linear; 
-    -moz-transition: color 0.7s linear, background-color 1s linear; 
-    -webkit-transition: color 0.7s linear, background-color 1s linear;
-    -ms-transition: color 0.7s linear, background-color 1s linear;
+    background-color: white;
+    transition: color 0.7s linear, background-color 0.5s linear; 
+    -moz-transition: color 0.7s linear, background-color 0.5s linear; 
+    -webkit-transition: color 0.7s linear, background-color 0.5s linear;
+    -ms-transition: color 0.7s linear, background-color 0.5s linear;
 }
 
 .filter-button:hover
 {
-    background-color: rgb(157, 191, 255);
+    background-color: rgb(255, 225, 187);
 }
 
 hr.filter-top-line
@@ -39,6 +42,11 @@ hr.filter-top-line
     padding: 0;
     border: 0.1vh solid rgb(97, 152, 255);
     opacity: 1;
+}
+
+.spacer
+{
+    padding: 0.5vh;
 }
 
 .detail-row
@@ -147,16 +155,16 @@ hr.filter-bot-line
     padding: 0.7vh;
     width: 18.725vh;
     height: 26vh;
-    background-color: rgba(201, 220, 255, 0.87);
-    transition: color 0.7s linear, background-color 1s linear; 
-    -moz-transition: color 0.7s linear, background-color 1s linear; 
-    -webkit-transition: color 0.7s linear, background-color 1s linear;
-    -ms-transition: color 0.7s linear, background-color 1s linear;
+    background-color: white;
+    transition: color 0.7s linear, background-color 0.5s linear; 
+    -moz-transition: color 0.7s linear, background-color 0.5s linear; 
+    -webkit-transition: color 0.7s linear, background-color 0.5s linear;
+    -ms-transition: color 0.7s linear, background-color 0.5s linear;
 }
 
 .product-card:hover
 {
-    background-color: rgba(174, 192, 223, 0.87);
+    background-color: rgb(255, 225, 187);
 }
 
 .product-img
@@ -187,7 +195,7 @@ hr.filter-bot-line
 
 
 /* ----------------------------------------------------------------------------------- */
-/* ------------------------------- CONTACT BUTTON CSS -------------------------------- */
+/* ----------------------- CONTACT AND APPLY FILTER BUTTON CSS ----------------------- */
 /* ----------------------------------------------------------------------------------- */
 
 .contact-button-wrapper
@@ -198,7 +206,7 @@ hr.filter-bot-line
     margin: 2vh;
 }
 
-.contact-button
+.contact-button, .apply-filter-button
 {
     text-decoration: none;
     border: 0;
@@ -206,13 +214,32 @@ hr.filter-bot-line
     padding: 0.7vh;
     font-size: 1.6vh;
     background-color: #ffffff;
-    transition: color 0.7s linear, background-color 1s linear; 
-    -moz-transition: color 0.7s linear, background-color 1s linear; 
-    -webkit-transition: color 0.7s linear, background-color 1s linear;
-    -ms-transition: color 0.7s linear, background-color 1s linear
+    transition: color 0.7s linear, background-color 0.5s linear; 
+    -moz-transition: color 0.7s linear, background-color 0.5s linear; 
+    -webkit-transition: color 0.7s linear, background-color 0.5s linear;
+    -ms-transition: color 0.7s linear, background-color 0.5s linear;
 }
 
-.contact-button:hover
+.contact-button:hover, .apply-filter-button:hover
+{
+    background-color: rgb(255, 225, 187);
+}
+
+.contact-button:active, .apply-filter-button:active
 {
     background-color: rgba(201, 220, 255, 0.87);
+    transition: none;
+}
+
+.contact-text
+{
+    margin: 0 1vh 0 1vh;
+    color: rgb(97, 152, 255);
+}
+
+.apply-filter-button
+{
+    margin-bottom: 1vh;
+    padding: 0.7vh 1.2vh 0.7vh 1.2vh;
+    color: rgb(97, 152, 255);
 }
