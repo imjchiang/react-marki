@@ -11,7 +11,13 @@ import '../css/display.css';
 
 const DisplayProducts = (props) =>
 {
-    const [viewedproducts, setViewedproducts] = useState(props.productDetails);
+    const [viewedproducts, setViewedproducts] = useState(
+    {
+        category: [false, false, false],
+        type: [false, false, false, false, false, false, false, false],
+        material: [false, false, false, false, false, false],
+        finish: [false, false, false]
+    });
     const [footPos, setFootPos] = useState();
 
     useEffect(() =>
@@ -114,7 +120,7 @@ const DisplayProducts = (props) =>
                     {/* <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Accessories'} packaging={props.accessories} /> */}
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} viewedproducts={viewedproducts} />
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} productDetails={props.productDetails} viewedproducts={viewedproducts} />
                 </div>
 
                 {/* displays the products selected for */}

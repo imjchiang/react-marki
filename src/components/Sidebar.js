@@ -7,6 +7,21 @@ const Sidebar = (props) =>
         console.log("FILTERED")
     }
 
+    const handleChecking = (deets, deet, index) =>
+    {
+        let tempViewedProds = props.viewedproducts;
+        if (props.viewedproducts[deets][index])
+        {
+            tempViewedProds[deets][index] = false;
+        }
+        else
+        {
+            tempViewedProds[deets][index] = deet;
+        }
+        props.setViewedproducts(tempViewedProds);
+        console.log(props.viewedproducts);
+    }
+
     return(
         <>
             <div className='filter-wrapper'>
@@ -15,7 +30,7 @@ const Sidebar = (props) =>
                 <form className='collapse' id='collapsedTarget'>
                     <div className='spacer'></div>
                     {
-                        Object.keys(props.viewedproducts).map(deets =>
+                        Object.keys(props.productDetails).map(deets =>
                         {
                             return(
                                 <div className='detail-row'>
@@ -23,12 +38,11 @@ const Sidebar = (props) =>
                                     <h3 className='detail-category'>{deets.charAt(0).toUpperCase() + deets.slice(1) + ":"}</h3>
                                     {/* creates checkboxes of the product detail category */}
                                     {
-                                        props.viewedproducts[deets].map(deet =>
+                                        props.productDetails[deets].map((deet, index) =>
                                         {
                                             return(
                                                 <div className='specific-detail'>
-                                                    <input type='checkbox' name={deet} onClick={console.log(deets + " " + deet)} />
-                                                    {console.log(props.viewedproducts)}
+                                                    <input type='checkbox' name={deet} value={deet} onClick={() => handleChecking(deets, deet, index)} />
                                                     <label className='checkbox-label' for={deet}>{deet}</label>
                                                 </div>
                                             );
