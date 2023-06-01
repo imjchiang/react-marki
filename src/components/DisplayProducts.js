@@ -11,7 +11,7 @@ import '../css/display.css';
 
 const DisplayProducts = (props) =>
 {
-    const [viewedproducts, setViewedproducts] = useState([]);
+    const [viewedproducts, setViewedproducts] = useState(props.productDetails);
     const [footPos, setFootPos] = useState();
 
     useEffect(() =>
@@ -114,7 +114,7 @@ const DisplayProducts = (props) =>
                     {/* <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Accessories'} packaging={props.accessories} /> */}
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} productDetails={props.productDetails} />
+                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} viewedproducts={viewedproducts} />
                 </div>
 
                 {/* displays the products selected for */}
@@ -152,7 +152,7 @@ const DisplayProducts = (props) =>
 
             <div className='contact-button-wrapper'>
                 <Link className='contact-button' to='/contact'>
-                    <h5 className='card-title'>Looking for something else?</h5>
+                    <p className='contact-text'>Looking for something else?</p>
                 </Link>
             </div>
 
