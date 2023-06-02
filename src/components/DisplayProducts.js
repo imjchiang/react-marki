@@ -19,6 +19,7 @@ const DisplayProducts = (props) =>
         finish: [false, false, false]
     });
     const [footPos, setFootPos] = useState();
+    const [dontFilterParam, setDontFilterParam] = useState([true, true, true, true]);
 
     useEffect(() =>
     {
@@ -42,9 +43,10 @@ const DisplayProducts = (props) =>
         }
     }
 
-    // sets the specific category and variations to display
+    // sets the categories that dont need to be filtered
     const handleFilter = () =>
     {
+        // takes all the checked and unchecked boxes in each category and puts them in a two dimensional array
         let parameters = [viewedproducts.category, viewedproducts.type, viewedproducts.material, viewedproducts.finish];
         // let dontFilterThisParam = [allCat, allType, allMaterial, allFinish];
         let dontFilterThisParam = [true, true, true, true];
@@ -55,6 +57,7 @@ const DisplayProducts = (props) =>
         {
             for (let j = 0; j < parameters[i].length; j++)
             {
+                // if they are not all false and the parameter shown is not clicked
                 if (paramFCounter[i] !== parameters[i].length && !parameters[i][j])
                 {
                     dontFilterThisParam[i] = false;
@@ -62,14 +65,17 @@ const DisplayProducts = (props) =>
                     console.log(paramFCounter[i]);
                     console.log(parameters[i].length);
                 }
+                // if the current state is false and a parameter is shown to need to be filtered
                 if (!dontFilterThisParam[i] && parameters[i][j])
                 {
                     dontFilterThisParam[i] = false;
                 }
+                // if the parameter is true up the counter
                 if (parameters[i][j])
                 {
                     paramTCounter[i]++;
                 }
+                // if the parameter true counter or false counter shows that all the parameter is true or false, dont filter it
                 if (paramTCounter[i] === parameters[i].length || paramFCounter[i] === parameters[i].length)
                 {
                     dontFilterThisParam[i] = true;
@@ -77,6 +83,8 @@ const DisplayProducts = (props) =>
             }
             console.log(dontFilterThisParam[i]);
         }
+        // set a state that has all the dont filter params
+        setDontFilterParam(dontFilterThisParam);
     }
 
     // add a new array for each product type
@@ -158,11 +166,41 @@ const DisplayProducts = (props) =>
                     {
                         products.map(product =>
                         {
+                            let generalParams = [viewedproducts.category, viewedproducts.type, viewedproducts.material, viewedproducts.finish];
+                            let productParams = [product.category, product.type, product.material, product.finish];
+                            let filterCounter = 0;
+                            let successFilterCount = 0;
                             // goes through all products to pick out products that match category and variation for display
-                            if ((viewedproducts[0] && viewedproducts[1] && viewedproducts[2] && product.category === viewedproducts[0] && product.type === viewedproducts[1] && product.variant === viewedproducts[2]) ||
-                                (viewedproducts[0] && viewedproducts[1] && !viewedproducts[2] && product.category === viewedproducts[0] && product.type === viewedproducts[1]) ||
-                                (viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2] && product.category === viewedproducts[0]) ||
-                                (!viewedproducts[0] && !viewedproducts[1] && !viewedproducts[2]))
+                            for (let i = 0; i < dontFilterParam.length; i++)
+                            {
+                                if (!dontFilterParam[i])
+                                {
+                                    for (let j = 0; j < generalParams[i].length; j++)
+                                    {
+                                        if (generalParams[i][j] === productParams[i])
+                                        {
+                                            successFilterCount++;
+                                        }
+                                        if (Array.isArray(productParams[i]))
+                                        {
+                                            let successFinishCount = 0;
+                                            console.log("ARRAY HAS BEEN DETECTED FOR " + generalParams[i][j]);
+                                            for (let k = 0; k < productParams[i].length; k++)
+                                            {
+                                                if (generalParams[i][j] === productParams[i][k])
+                                                {
+                                                    successFinishCount++;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    filterCounter++;
+                                }
+                            }
+                            if (filterCounter + successFilterCount === dontFilterParam.length)
                             {
                                 return(
                                     <div className='product-wrapper'>

@@ -38,7 +38,7 @@ const Sidebar = (props) =>
                                             return(
                                                 <div className='specific-detail'>
                                                     <input type='checkbox' name={deet} value={deet} onClick={() => handleChecking(deets, deet, index)} />
-                                                    <label className='checkbox-label' for={deet}>{deet}</label>
+                                                    <label className='checkbox-label' htmlFor={deet}>{deet}</label>
                                                 </div>
                                             );
                                         })
