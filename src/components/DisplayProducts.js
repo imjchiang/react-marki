@@ -45,7 +45,38 @@ const DisplayProducts = (props) =>
     // sets the specific category and variations to display
     const handleFilter = () =>
     {
+        let parameters = [viewedproducts.category, viewedproducts.type, viewedproducts.material, viewedproducts.finish];
+        // let dontFilterThisParam = [allCat, allType, allMaterial, allFinish];
+        let dontFilterThisParam = [true, true, true, true];
+        let paramFCounter = [0, 0, 0, 0];
+        let paramTCounter = [0, 0, 0, 0];
         console.log(viewedproducts);
+        for (let i = 0; i < 4; i++)
+        {
+            for (let j = 0; j < parameters[i].length; j++)
+            {
+                if (paramFCounter[i] !== parameters[i].length && !parameters[i][j])
+                {
+                    dontFilterThisParam[i] = false;
+                    paramFCounter[i]++;
+                    console.log(paramFCounter[i]);
+                    console.log(parameters[i].length);
+                }
+                if (!dontFilterThisParam[i] && parameters[i][j])
+                {
+                    dontFilterThisParam[i] = false;
+                }
+                if (parameters[i][j])
+                {
+                    paramTCounter[i]++;
+                }
+                if (paramTCounter[i] === parameters[i].length || paramFCounter[i] === parameters[i].length)
+                {
+                    dontFilterThisParam[i] = true;
+                }
+            }
+            console.log(dontFilterThisParam[i]);
+        }
     }
 
     // add a new array for each product type
