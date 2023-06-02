@@ -2,11 +2,6 @@ import React, {useState} from 'react';
 
 const Sidebar = (props) =>
 {
-    const handleFilter = () =>
-    {
-        console.log("FILTERED")
-    }
-
     const handleChecking = (deets, deet, index) =>
     {
         let tempViewedProds = props.viewedproducts;
@@ -19,7 +14,7 @@ const Sidebar = (props) =>
             tempViewedProds[deets][index] = deet;
         }
         props.setViewedproducts(tempViewedProds);
-        console.log(props.viewedproducts);
+        // console.log(props.viewedproducts);
     }
 
     return(
@@ -52,7 +47,7 @@ const Sidebar = (props) =>
                             );
                         })
                     }
-                    <input className='apply-filter-button' type='button' onClick={handleFilter} value='Apply' />
+                    <input className='apply-filter-button' type='button' onClick={() => props.handleFilter()} value='Apply' />
                 </form>
             </div>
             <hr className='filter-bot-line' />

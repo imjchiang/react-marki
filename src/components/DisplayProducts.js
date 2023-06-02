@@ -43,10 +43,9 @@ const DisplayProducts = (props) =>
     }
 
     // sets the specific category and variations to display
-    const handleSort = (cat, type, vari) =>
+    const handleFilter = () =>
     {
-        console.log([cat, type, vari]);
-        setViewedproducts([cat, type, vari]);
+        console.log(viewedproducts);
     }
 
     // add a new array for each product type
@@ -120,7 +119,7 @@ const DisplayProducts = (props) =>
                     {/* <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Food Packaging'} packaging={props.foodPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Personal Care Packaging'} packaging={props.personalPack} />
                     <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} packagingCategory={'Accessories'} packaging={props.accessories} /> */}
-                    <Sidebar handleSort={handleSort} setViewedproducts={setViewedproducts} productDetails={props.productDetails} viewedproducts={viewedproducts} />
+                    <Sidebar handleFilter={handleFilter} setViewedproducts={setViewedproducts} productDetails={props.productDetails} viewedproducts={viewedproducts} />
                 </div>
 
                 {/* displays the products selected for */}
