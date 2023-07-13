@@ -175,15 +175,13 @@ const DisplayProducts = (props) =>
                             {
                                 if (!dontFilterParam[i])
                                 {
+                                    let successFinishCount = 0;
+                                    // parses through all possible values for each parameter
                                     for (let j = 0; j < generalParams[i].length; j++)
                                     {
-                                        if (generalParams[i][j] === productParams[i])
-                                        {
-                                            successFilterCount++;
-                                        }
+                                        // checks finish matching
                                         if (Array.isArray(productParams[i]))
                                         {
-                                            let successFinishCount = 0;
                                             console.log("ARRAY HAS BEEN DETECTED FOR " + generalParams[i][j]);
                                             for (let k = 0; k < productParams[i].length; k++)
                                             {
@@ -193,6 +191,16 @@ const DisplayProducts = (props) =>
                                                 }
                                             }
                                         }
+                                        // checks other param matching
+                                        else if (generalParams[i][j] === productParams[i])
+                                        {
+                                            successFilterCount++;
+                                        }
+                                    }
+                                    // confirms count if any finish has matched
+                                    if (successFinishCount > 0)
+                                    {
+                                        successFilterCount++;
                                     }
                                 }
                                 else
@@ -200,6 +208,7 @@ const DisplayProducts = (props) =>
                                     filterCounter++;
                                 }
                             }
+                            // displays specific product if it matches parameters sought for
                             if (filterCounter + successFilterCount === dontFilterParam.length)
                             {
                                 return(
