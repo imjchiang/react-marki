@@ -21,7 +21,7 @@ const DisplayProducts = (props) =>
     });
     const [footPos, setFootPos] = useState();
     const [dontFilterParam, setDontFilterParam] = useState([true, true, true, true]);
-    const [gData, setGData] = useState();
+    const [sheetLoading, setSheetLoading] = useState();
     const [products, setProducts] = useState([]);
 
     const { data, loading, error } = useGoogleSheets({
@@ -33,12 +33,15 @@ const DisplayProducts = (props) =>
     {
         if (!loading)
         {
-            setGData(JSON.stringify(data[0]['data']));
+            // sheet loading is just a bandaid for the use effect not rendering issue
+            setSheetLoading(loading);
             console.log("DATA HAS BEEN SET");
             data[0]['data'].map((productData, key) =>
             {
                 let productArray = products;
+                let finishArray = productData.finish.split(", ");
                 productArray[key] = productData;
+                productArray[key].finish = finishArray;
                 setProducts(productArray);
                 console.log(products);
             })
