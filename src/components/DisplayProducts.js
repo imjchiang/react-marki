@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Tabletop from 'tabletop';
-import { usePapaParse } from 'react-papaparse';
+import useGoogleSheets from 'use-google-sheets';
 
 // components
 import Sidebar from './Sidebar.js';
@@ -24,7 +22,21 @@ const DisplayProducts = (props) =>
     const [footPos, setFootPos] = useState();
     const [dontFilterParam, setDontFilterParam] = useState([true, true, true, true]);
     const [gData, setGData] = useState();
-    const { readRemoteFile } = usePapaParse();
+
+    const { data, loading, error } = useGoogleSheets({
+        apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+        sheetId: process.env.REACT_APP_GOOGLE_SHEETS_ID,
+    });
+    
+    useEffect(() =>
+    {
+        if (!loading)
+        {
+            setGData(JSON.stringify(data[0]['data']));
+            console.log("DATA HAS BEEN SET");
+        }
+        console.log("RENDERRINGGG DATA");
+    }, [loading]);
 
     useEffect(() =>
     {
@@ -34,68 +46,6 @@ const DisplayProducts = (props) =>
     useEffect(() =>
     {
         window.addEventListener("resize", handleResize, false);
-    }, []);
-
-    // useEffect(() =>
-    // {
-    //     axios.get('https://docs.google.com/spreadsheets/d/1X1iLnQskeIiDbdGk74Ik1-XChpos8x_CL2_3cmc_dO8/edit?usp=sharing')
-    //     .then(res => 
-    //     {
-    //         const googleData = res.data;
-    //         setGData(googleData);
-    //     })
-    //     .catch(err =>
-    //     {
-    //         console.log("ERROR");
-    //     });
-    // }, []);
-
-    // useEffect(() =>
-    // {
-    //     Tabletop.init(
-    //         {
-    //             key: 'https://docs.google.com/spreadsheets/d/1X1iLnQskeIiDbdGk74Ik1-XChpos8x_CL2_3cmc_dO8/edit?usp=sharing',
-    //             simpleSheet: true
-    //         }
-    //     )
-    //     .then((data, tabletop) =>
-    //         {
-    //             setGData(data);
-    //         })
-    //     .catch(err =>
-    //         {
-    //             console.log("ERROR");
-    //         })
-    // }, []);
-
-    // useEffect(() =>
-    // {
-    //     Papa.parse('https://docs.google.com/spreadsheets/d/1X1iLnQskeIiDbdGk74Ik1-XChpos8x_CL2_3cmc_dO8/edit?usp=sharing',
-    //     {
-    //         download: true,
-    //         complete: function(results) 
-    //         {
-    //             console.log(results);
-    //         },
-    //     }
-    // }, []);
-
-    useEffect(() => 
-    {
-        readRemoteFile('https://docs.google.com/spreadsheets/d/1X1iLnQskeIiDbdGk74Ik1-XChpos8x_CL2_3cmc_dO8/edit?usp=sharing', 
-        {
-            step: (row) =>
-            {
-                console.log('Row:', row.data)
-            }
-            // complete: (results) => 
-            // {
-            //     setGData(results);
-            //     console.log('---------------------------');
-            //     console.log('Results:', results.data);
-            //     console.log('---------------------------');
-            // }
-        });
     }, []);
 
     const handleResize = () =>
@@ -275,7 +225,6 @@ const DisplayProducts = (props) =>
                                     filterCounter++;
                                 }
                             }
-                            console.log(gData);
                             // displays specific product if it matches parameters sought for
                             if (filterCounter + successFilterCount === dontFilterParam.length)
                             {
@@ -300,6 +249,8 @@ const DisplayProducts = (props) =>
                     } 
                 </div>
             </div>
+
+            <div>{gData}</div>
 
             <div className='contact-button-wrapper'>
                 <Link className='contact-button' to='/contact'>
