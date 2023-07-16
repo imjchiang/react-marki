@@ -22,6 +22,7 @@ const DisplayProducts = (props) =>
     const [footPos, setFootPos] = useState();
     const [dontFilterParam, setDontFilterParam] = useState([true, true, true, true]);
     const [gData, setGData] = useState();
+    const [products, setProducts] = useState([]);
 
     const { data, loading, error } = useGoogleSheets({
         apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -34,6 +35,13 @@ const DisplayProducts = (props) =>
         {
             setGData(JSON.stringify(data[0]['data']));
             console.log("DATA HAS BEEN SET");
+            data[0]['data'].map((productData, key) =>
+            {
+                let productArray = products;
+                productArray[key] = productData;
+                setProducts(productArray);
+                console.log(products);
+            })
         }
         console.log("RENDERRINGGG DATA");
     }, [loading]);
@@ -103,63 +111,6 @@ const DisplayProducts = (props) =>
         // set a state that has all the dont filter params
         setDontFilterParam(dontFilterThisParam);
     }
-
-    // add a new array for each product type
-    let products = [
-        {
-            // id must be the name of the folder in images
-            id: "bon", 
-            // name is displayed on the product page
-            name: "Chocolate Box 1",
-            // category of product
-            category: "Food Packaging",
-            // type of the product
-            type: "Labels",
-            // material of the product
-            material: "Paper",
-            // finish of the product
-            finish: ["Matte"],
-            // thumbnail is the image name of the product card
-            thumbnail: "bonStaggered2",
-            // desc is the short description on the card
-            desc: "This chocolate box features a 3 by 9 grid of chocolate insertions...",
-            // fullDesc is used for the full description which will be shown on the product page
-            fullDesc: "This is the full description of this long shaped BON chocolate box."
-        }, 
-        {
-            id: "mBChocBox", 
-            name: "Chocolate Box 2",
-            category: "Food Packaging",
-            type: "Ribbons",
-            material: "Plastic",
-            finish: ["Glossy/Polished"],
-            thumbnail: "mBOpen-M",
-            desc: "This chocolate box features 3 windoes to view the internals of...",
-            fullDesc: "This chocolate box has many different sizes to select from along with an associated ribbon which secures the lid onto the box."
-        },
-        {
-            id: "bon", 
-            name: "Cake Box",
-            category: "Food Packaging",
-            type: "Bottles",
-            material: "Glass",
-            finish: ["Glossy/Polished", "Waterproof"],
-            thumbnail: "bonStaggered2",
-            desc: "This chocolate box features a 3 by 9 grid of chocolate insertions...",
-            fullDesc: "This is the full description of this long shaped BON chocolate box."
-        },
-        {
-            id: "mBChocBox", 
-            name: "Corrugated Box",
-            category: "Personal Care Packaging",
-            type: "Containers",
-            material: "Metal",
-            finish: ["Matte", "Waterproof"],
-            thumbnail: "mBOpen-M",
-            desc: "This chocolate box features 3 windoes to view the internals of...",
-            fullDesc: "This chocolate box has many different sizes to select from along with an associated ribbon which secures the lid onto the box."
-        }
-    ];
 
     return(
         <motion.div
@@ -249,8 +200,6 @@ const DisplayProducts = (props) =>
                     } 
                 </div>
             </div>
-
-            <div>{gData}</div>
 
             <div className='contact-button-wrapper'>
                 <Link className='contact-button' to='/contact'>
