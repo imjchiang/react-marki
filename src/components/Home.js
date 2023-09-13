@@ -42,33 +42,33 @@ const Home = () =>
     }
 
     // determines where the window will scroll to
-    const goTo = (num) => 
-    {
-        if (num === 1)
-        {
-            // scroll to second section
-            window.scrollTo({
-                top: window.innerHeight*0.92,
-                behavior: 'smooth',
-            });
-        }
-        else if (num === 2)
-        {
-            // scroll to bottom
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: 'smooth',
-            });
-        }
-        else
-        {
-            // scroll back to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-        }
-    }
+    // const goTo = (num) => 
+    // {
+    //     if (num === 1)
+    //     {
+    //         // scroll to second section
+    //         window.scrollTo({
+    //             top: window.innerHeight*0.92,
+    //             behavior: 'smooth',
+    //         });
+    //     }
+    //     else if (num === 2)
+    //     {
+    //         // scroll to bottom
+    //         window.scrollTo({
+    //             top: document.documentElement.scrollHeight,
+    //             behavior: 'smooth',
+    //         });
+    //     }
+    //     else
+    //     {
+    //         // scroll back to top
+    //         window.scrollTo({
+    //             top: 0,
+    //             behavior: 'smooth',
+    //         });
+    //     }
+    // }
 
     // determines if the back to top text will appear on hover of button
     let textAppear = (num) =>
@@ -96,9 +96,9 @@ const Home = () =>
                 <h2>Packaging Solutions</h2>
             </div>
 
-            <div className='scrolldiv' onClick={() => goTo(1)}>
+            {/* <div className='scrolldiv' onClick={() => goTo(1)}>
                 <img className='scrolldown' src={dropdown} alt='dropdown arrow'/>
-            </div>
+            </div> */}
 
             <div className='homecats'>
                 <Link className='homeprod' to='/displayproducts'>
@@ -120,9 +120,9 @@ const Home = () =>
                 </div>
             </div>
 
-            <div className='scrolldiv2' onClick={() => goTo(2)}>
+            {/* <div className='scrolldiv2' onClick={() => goTo(2)}>
                 <img className='scrolldown' src={dropdown} alt='dropdown arrow'/>
-            </div>
+            </div> */}
 
             <div className='about'>
                 <Link className='abouttitle' to='/contact'>
@@ -142,7 +142,7 @@ const Home = () =>
                         efficiently produced, and at a reasonable price point.
                     </p>
                 </div>
-                <div className='toTop'>
+                {/* <div className='toTop'>
                     <p className={'topHover ' + appear}>Back to Top</p>
                     <button 
                         className='toTopButton' 
@@ -151,7 +151,7 @@ const Home = () =>
                         onClick={() => goTo(3)}>
                             △
                     </button>
-                </div>
+                </div> */}
             </div>
 
             <div className={footPos}>
