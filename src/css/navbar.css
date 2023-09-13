@@ -1,11 +1,16 @@
 .navbar
 {
-    /* font-size: 2vh; */
-    background-color: rgb(238, 226, 212);
+    font-size: 2vh;
+    background-color: rgb(223, 197, 124);
     transition: background-color 1s linear; 
     -moz-transition: background-color 1s linear;  
     -webkit-transition: background-color 1s linear; 
     -ms-transition: background-color 1s linear;
+}
+
+.nav-logo
+{
+    width: 1.5vw;
 }
 
 .navbar-toggler-icon
@@ -31,17 +36,22 @@
 {
     /* font-size: 3vh; */
     padding-left: 0.5vw;
-    color: rgb(113, 123, 255);
+    color: rgb(0, 0, 0);
 }
 
 .nav-link
 {
-    color: rgb(113, 123, 255);
+    color: rgb(0, 0, 0);
 }
 
 .home-button:hover, .nav-link:hover
 {
-    color: rgb(147, 197, 255);
+    color: rgb(161, 23, 67);
+}
+
+.dropdown>.show
+{
+    color: rgb(161, 23, 67);
 }
 
 .scrolled

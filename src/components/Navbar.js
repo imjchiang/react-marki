@@ -6,6 +6,8 @@ import '../css/navbar.css';
 
 // images
 import menu from '../images/menu.png';
+import logo from '../images/logo.png';
+import logonotxt from '../images/logo-notxt.png';
 
 const Navbar = () =>
 {
@@ -37,7 +39,9 @@ const Navbar = () =>
     return(
         <nav className={'navbar navbar-expand-lg sticky-top ' + color}>
             <div className='container-fluid'>
-                <Link className='home-button navbar-brand' to='/'>MarKi</Link>
+                <Link className='home-button navbar-brand' to='/'>
+                    <img className='nav-logo' src={logonotxt} alt='MarKi logo' />
+                </Link>
                 <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                 <span className='navbar-toggler-icon'>
                     <img className='toggler-image' src={menu} alt='menu toggler' />
@@ -54,12 +58,13 @@ const Navbar = () =>
                         </Link>
                         <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                             <li><Link className='dropdown-item' to='/displayproducts'>All Products</Link></li>
-                            <li><Link className='dropdown-item' to='/displayproducts'>Food Packaging</Link></li>
-                            <li><Link className='dropdown-item' to='/displayproducts'>Personal Care Packaging</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Glass Bottles</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Caps & Collars</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Pumps</Link></li>
                             <li><hr className='dropdown-divider' /></li>
-                            <li><Link className='dropdown-item' to='/displayproducts'>Boxes</Link></li>
-                            <li><Link className='dropdown-item' to='/displayproducts'>Bottles</Link></li>
-                            <li><Link className='dropdown-item' to='/displayproducts'>Components</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Complete Sets</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Men's Collection</Link></li>
+                            <li><Link className='dropdown-item' to='/displayproducts'>Women's Collection</Link></li>
                         </ul>
                     </li>
                     {/* <li className='nav-item'>

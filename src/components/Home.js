@@ -107,11 +107,15 @@ const Home = () =>
                 <div className='prodcontainer'>
                     <Link className='product' to='/displayproducts'>
                         <img src={food} alt='food packaging'/>
-                        Food Packaging
+                        Glass Bottles
                     </Link>
                     <Link className='product' to='/displayproducts'>
                         <img src={personalCare} alt='personal care packaging'/>
-                        Personal Care Packaging
+                        Caps & Collars
+                    </Link>
+                    <Link className='product' to='/displayproducts'>
+                        <img src={food} alt='food packaging'/>
+                        Pumps
                     </Link>
                 </div>
             </div>
