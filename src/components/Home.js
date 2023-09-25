@@ -41,6 +41,11 @@ const Home = () =>
         }
     }
 
+    // const handleTitleDiv = () =>
+    // {
+    //     if (document.documentElement.scrollTop)
+    // }
+
     // determines where the window will scroll to
     // const goTo = (num) => 
     // {

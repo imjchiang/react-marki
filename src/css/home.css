@@ -70,19 +70,36 @@ h2
     margin-bottom: 4vh;
     font-size: 6vh;
     font-family: "Trirong";
-    color: rgb(68, 68, 68);
-    background-color: rgb(97, 152, 255);
+    color: rgb(98, 146, 158);
+    /* background-color: rgb(97, 152, 255); */
     text-decoration: none;
-    transition: color 1s linear, background-color 1s linear; 
-    -moz-transition: color 1s linear, background-color 1s linear; 
-    -webkit-transition: color 1s linear, background-color 1s linear;
-    -ms-transition: color 1s linear, background-color 1s linear;
+    transition: color 0.75s linear, background-color 1s linear; 
+    -moz-transition: color 0.75s linear, background-color 1s linear; 
+    -webkit-transition: color 0.75s linear, background-color 1s linear;
+    -ms-transition: color 0.75s linear, background-color 1s linear;
 }
 
 .homeprod:hover, .abouttitle:hover
 {   
-    color: rgb(40, 126, 175);
-    background-color: rgb(194, 241, 255);
+    color: rgb(161, 23, 67);
+    /* background-color: rgb(194, 241, 255); */
+}
+
+.homeprod::after, .abouttitle::after
+{
+    display:block;
+    content: '';
+    border-bottom: solid 3px rgb(161, 23, 67);  
+    transform: scaleX(0);  
+    transition: transform 300ms ease-in-out;
+    -moz-transition: transform 300ms ease-in-out;
+    -webkit-transition: transform 300ms ease-in-out;
+    -ms-transition: transform 300ms ease-in-out;
+}
+
+.homeprod:hover::after, .abouttitle:hover::after
+{
+    transform: scaleX(1);
 }
 
 .product
