@@ -135,9 +135,11 @@ h2
 .prodcontainer
 {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    height: 50vh;
+    width: fit-content;
+    height: fit-content;
 }
 
 .scrolldiv2

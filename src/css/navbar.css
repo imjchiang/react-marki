@@ -2,10 +2,10 @@
 {
     font-size: 2vh;
     background-color: rgb(223, 197, 124);
-    transition: background-color 1s linear; 
-    -moz-transition: background-color 1s linear;  
-    -webkit-transition: background-color 1s linear; 
-    -ms-transition: background-color 1s linear;
+    transition: background-color 0.25s linear; 
+    -moz-transition: background-color 0.25s linear;  
+    -webkit-transition: background-color 0.25s linear; 
+    -ms-transition: background-color 0.25s linear;
 }
 
 .nav-logo
