@@ -1,6 +1,7 @@
 .products-page-wrapper
 {
     display: inline-block;
+    justify-content: center;
 }
 
 
@@ -131,8 +132,10 @@ hr.filter-bot-line
 .all-product-cards
 {
     /* will need adaptive resizing for other devices */
+    width: 80vw;
+    padding-left: 0.75vw;
     display: flex;
-    width: 80vh;
+    flex-wrap: wrap;
     height: fit-content;
 }
 
